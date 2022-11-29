@@ -1,0 +1,27 @@
+.navigation-message {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 20px 0;
+    height: 400px;
+}
+
+.navigation-message ul {
+    height: 45px;
+    line-height: 45px;
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+}
+
+.navigation-message li {
+    margin-left: 50px;
+    text-align: left;
+}
+
+.nav:hover {
+    color: #00B4CF;
+}
+.iconfont {
+    margin-right: 15px;
+}

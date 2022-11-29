@@ -1,0 +1,11 @@
+.main {
+    position: fixed;
+    top: 60px;
+    width: 80%;
+    left: 10%;
+    right: 10%;
+    padding: 0;
+    display: flex;
+    bottom: 20px;
+    overflow: auto;
+}

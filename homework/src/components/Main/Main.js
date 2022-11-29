@@ -1,6 +1,7 @@
 import React from "react";
-import LeftNavigation from "./LeftNavigation";
-import Agent from "./Agent";
+import LeftNavigation from "../LeftNavigation/LeftNavigation";
+import Agent from "../Agent/Agent";
+import './Main.css'
 
 const Main = () => {
     return(

@@ -1,0 +1,18 @@
+.history-heading {
+    text-align: left;
+    margin-left: 8%;
+    font-size: 24px;
+    color: #ccc;
+}
+
+.history-list {
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: #999;
+    text-align: left;
+}
+
+.history-list li:hover {
+    color: #00B4CF;
+}

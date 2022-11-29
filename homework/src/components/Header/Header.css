@@ -1,0 +1,52 @@
+.header {
+    padding: 10px;
+    position: fixed;
+    height: 60px;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #E1E4E6;
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header img {
+    height: 40px;
+}
+
+.header .logo {
+    position: absolute;
+    left: 50%;
+}
+
+.header .user-avatar {
+    border-radius: 50%;
+    position: absolute;
+    right: 100px;
+}
+
+.user-menu-list {
+    position: absolute;
+    right: 85px;
+    opacity: 0;
+}
+
+.header label {
+    cursor: default;
+    position: absolute;
+    right: 85px;
+}
+
+.user-menu-list + label {
+    position: absolute;
+    top: 18px;
+    right: 45px;
+    font-size: 0;
+    transform: rotate(90deg);
+}
+
+.user-menu-list + label:before {
+    content: "❯";
+    font-size: 20px;
+    color: #CCC;
+    padding: 10px 27px 10px 27px;
+}
