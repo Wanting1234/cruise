@@ -1,3 +1,19 @@
 .agent {
     width: 80%;
 }
+
+.agent-navbar {
+    display: flex;
+    margin: 0 68px;
+    background-color: #FFFFFF;
+}
+
+.icon-type {
+    margin: 15px 10px;
+    cursor: pointer;
+}
+
+.active {
+    color: #00B4CF;
+}
+
