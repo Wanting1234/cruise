@@ -1,0 +1,99 @@
+.agent-item {
+    padding: 16px;
+    margin: 20px 67px 12px 67px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+}
+
+.agent-detail {
+    flex: 1 auto;
+}
+
+.agent-info, .agent-operation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.agent-info {
+    margin-bottom: 20px;
+}
+
+.name-with-icon, .ip-with-icon, .location-with-icon {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.name {
+    color: #00B4CF;
+    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.agent-info .iconfont {
+    font-size: 14px;
+    color: #ACACAC;
+}
+
+.info-label {
+    color: #FFFFFF;
+    padding: 2px 8px;
+    margin-right: 40px;
+    font-size: 14px;
+}
+
+.agent-operation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.operation-group {
+    flex: 1 auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.add-button {
+    padding: 4px 6px 0 6px;
+    background-color: #00B4CF;
+    border: none;
+}
+
+.add-button:hover {
+    background-color: #01869A;
+}
+
+.add-button .iconfont {
+    font-size: 18px;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.resource-button {
+    background-color: #EFEFEF;
+    margin: 0 4px;
+    border: none;
+}
+
+.resource-button span {
+    font-size: 16px;
+}
+
+.resource-button .iconfont {
+    margin-left: 8px;
+    margin-right: 0;
+    font-size: 16px;
+    fill:  #2D4054;
+}
+
+.deny-button {
+    background-color: #00B4CF;
+    color: #FFFFFF;
+    border: none;
+    padding: 3px 9px 3px 6px;
+}
