@@ -1,0 +1,74 @@
+.agent-overview {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.yellow {
+    background-color: #FF9A2A;
+}
+
+.green {
+    background-color: #7FBC39;
+}
+
+.card {
+    position: relative;
+    width: 270px;
+    height: 124px;
+    padding: 12px;
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+p {
+    font-size: 48px;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    right: 8%;
+}
+
+.card .iconfont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    line-height: 1;
+    font-size: 144px;
+    color: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+}
+
+.card-overview {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    width: 270px;
+    height: 124px;
+    padding: 12px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.overview-item {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.overview-item span:last-child {
+    margin-top: 30px;
+    font-size: 20px;
+    color: #000000;
+}
