@@ -5,16 +5,10 @@ const getAgents = () => {
     return axios.get(AGENT_URL).then(({data}) => data)
 }
 
-const putAgent = (agent) => {
-    return axios.put(`${AGENT_URL}/${agent.id}`, {
-        name: agent.name,
-        os: agent.os,
-        status: agent.status,
-        type: agent.type,
-        ip: agent.ip,
-        location: agent.location,
+const patchAgent = agent => {
+    return axios.patch(`${AGENT_URL}/${agent.id}`, {
         resources: agent.resources
     })
 }
 
-export {getAgents, putAgent}
+export {getAgents, patchAgent}

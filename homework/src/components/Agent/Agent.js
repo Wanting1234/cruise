@@ -4,7 +4,7 @@ import {StatusCard} from "./StatusCard";
 import {StatisticsCard} from "./StatisticsCard";
 import {Navbar} from "./Navbar";
 import {InputSearch} from "./InputSearch";
-import {getAgents, putAgent} from "../../api/api";
+import {getAgents, patchAgent} from "../../api/api";
 import {AgentItem} from "./AgentItem";
 
 const Agent = () => {
@@ -22,11 +22,22 @@ const Agent = () => {
         const newAgentListAfterDelete = agents.map(agent => {
             if (agent.id === id) {
                 agent.resources.splice(index, 1);
-                putAgent(agent).then(() => fetchAgents());
+                patchAgent(agent).then(() => fetchAgents());
             }
             return agent;
         })
         setAgents(newAgentListAfterDelete)
+    }
+
+    const triggerAddResource = (id, resources) => {
+        const newAgentListAfterAdd = agents.map(agent => {
+            if (agent.id === id) {
+                agent.resources.push(resources);
+                patchAgent(agent).then(() => fetchAgents())
+            }
+            return agent;
+        })
+        setAgents(newAgentListAfterAdd)
     }
 
     return (
@@ -45,7 +56,9 @@ const Agent = () => {
             <div className="agent-list">
                 <ul>
                     {agents.map((agent) => (
-                        <AgentItem key={agent.id} agent={agent} deleteResource={(id, index) => triggerDeleteResource(id, index)} />
+                        <AgentItem key={agent.id} agent={agent}
+                                   deleteResource={(id, index) => triggerDeleteResource(id, index)}
+                                   addResources={(id, resources) => triggerAddResource(id, resources)}/>
                     ))}
                 </ul>
             </div>
