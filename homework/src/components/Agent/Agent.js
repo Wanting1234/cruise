@@ -4,7 +4,7 @@ import {StatusCard} from "./StatusCard";
 import {StatisticsCard} from "./StatisticsCard";
 import {Navbar} from "./Navbar";
 import {InputSearch} from "./InputSearch";
-import {getAgents} from "../../api/api";
+import {getAgents, putAgent} from "../../api/api";
 import {AgentItem} from "./AgentItem";
 
 const Agent = () => {
@@ -17,6 +17,17 @@ const Agent = () => {
     useEffect(() => {
         fetchAgents();
     }, []);
+
+    const triggerDeleteResource = (id, index) => {
+        const newAgentListAfterDelete = agents.map(agent => {
+            if (agent.id === id) {
+                agent.resources.splice(index, 1);
+                putAgent(agent).then(() => fetchAgents());
+            }
+            return agent;
+        })
+        setAgents(newAgentListAfterDelete)
+    }
 
     return (
         <div className="agent">
@@ -32,7 +43,7 @@ const Agent = () => {
                 <div className="iconfont icon-type icon-th-list active"></div>
             </div>
             <div className="agent-list">
-                <AgentItem agents={agents}/>
+                <AgentItem agents={agents} deleteResource={(id, index) => triggerDeleteResource(id, index)}/>
             </div>
         </div>
     )
