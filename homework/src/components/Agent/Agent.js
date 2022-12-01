@@ -43,7 +43,11 @@ const Agent = () => {
                 <div className="iconfont icon-type icon-th-list active"></div>
             </div>
             <div className="agent-list">
-                <AgentItem agents={agents} deleteResource={(id, index) => triggerDeleteResource(id, index)}/>
+                <ul>
+                    {agents.map((agent) => (
+                        <AgentItem key={agent.id} agent={agent} deleteResource={(id, index) => triggerDeleteResource(id, index)} />
+                    ))}
+                </ul>
             </div>
         </div>
     )

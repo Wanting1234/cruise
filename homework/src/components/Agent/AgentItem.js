@@ -1,13 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import './AgentItem.css'
+import {Popup} from "./Popup";
 
-export const AgentItem = ({agents, deleteResource}) => {
+export const AgentItem = ({agent, deleteResource}) => {
     const handleDelete = (id, index) => {
         deleteResource(id, index);
     };
+    const [isInputShowed, setIsInputShowed] = useState(false)
+
+    const handleAdd = () => {
+        setIsInputShowed(!isInputShowed)
+    };
 
     return (
-        agents.map(agent => (
             <div key={agent.id} className="agent-item">
                 <div className="agent-detail">
                     <div className="agent-info">
@@ -29,9 +34,10 @@ export const AgentItem = ({agents, deleteResource}) => {
                     </div>
                     <div className="agent-operation">
                         <div className="operation-group">
-                            <button className="add-button">
+                            <button className="add-button" onClick={handleAdd}>
                                 <span className="iconfont icon-plus"></span>
                             </button>
+                            {isInputShowed && <Popup toggle={handleAdd}/>}
                             {agent.resources.map((item, index) => (
                                 <button className="resource-button" key={index}>
                                     <span>{item}</span>
@@ -48,6 +54,5 @@ export const AgentItem = ({agents, deleteResource}) => {
                     </div>
                 </div>
             </div>
-        ))
     );
 }
