@@ -30,9 +30,10 @@ const Agent = () => {
     }
 
     const triggerAddResource = (id, resources) => {
+        const addResources = resources.split(',').map(item => item.trim()).filter(item => item !== '');
         const newAgentListAfterAdd = agents.map(agent => {
             if (agent.id === id) {
-                agent.resources.push(resources);
+                agent.resources = agent.resources.concat(addResources)
                 patchAgent(agent).then(() => fetchAgents())
             }
             return agent;
