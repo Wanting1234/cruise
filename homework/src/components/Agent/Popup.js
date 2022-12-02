@@ -1,11 +1,7 @@
 import React, {useState} from "react";
 import './Popup.css'
 
-export const Popup = ({toggle, addResources, id, top, left}) => {
-    const handleClick = () => {
-        toggle();
-    }
-
+export const Popup = ({toggle,addResources, id, top, left}) => {
     const [inputText, setInputText] = useState('');
 
     const handleChange = (e) => {
@@ -29,8 +25,8 @@ export const Popup = ({toggle, addResources, id, top, left}) => {
 
     return (
         <div className="add-input-content" style={{top,left}}>
-            <span className="iconfont icon-close" onClick={handleClick}></span>
-            <form>
+            <span className="iconfont icon-close" ></span>
+            <form id="form">
                 <label>
                     Separate multiple resource name with commas
                     <br/>

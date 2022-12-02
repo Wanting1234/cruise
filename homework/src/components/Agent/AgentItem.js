@@ -10,18 +10,30 @@ export const AgentItem = ({agent, deleteResource, addResources}) => {
     const [top, setTop] = useState(0);
     const [left, setLeft] = useState(0);
 
-    const toggleInput = () => {
-        setIsInputShowed(!isInputShowed)
+    const toggle = () => {
+        setIsInputShowed(false)
     }
 
-    const toggleInputAndPosition = (e) => {
-        setIsInputShowed(!isInputShowed)
+    const setInputPosition = (e) => {
         const box = e.target.getBoundingClientRect();
         const top = box.top - box.height;
         const left = box.left - 205;
         setTop(top)
         setLeft(left)
     }
+
+    document.addEventListener("click", event => {
+        const tDom = event.target;
+        const aDom = document.getElementById(`plus-${agent.id}`);
+
+        if (tDom === aDom) {
+            setIsInputShowed(true)
+        }
+        const cDom = document.querySelector("#form");
+        if (cDom && !cDom.contains(tDom)) {
+            setIsInputShowed(false)
+        }
+        })
 
     return (
         <div key={agent.id} className="agent-item">
@@ -45,11 +57,13 @@ export const AgentItem = ({agent, deleteResource, addResources}) => {
                 </div>
                 <div className="agent-operation">
                     <div className="operation-group">
-                        <button className="add-button" onClick={toggleInputAndPosition}>
-                            <span className="iconfont icon-plus"></span>
+                        <button className="add-button">
+                            {/*<span className="iconfont icon-plus"></span>*/}
+                            <span className={"iconfont icon-plus"} id={`plus-${agent.id}`} onClick={setInputPosition} ></span>
+
                         </button>
                         {isInputShowed &&
-                            <Popup toggle={toggleInput} id={agent.id} addResources={addResources} top={top}
+                            <Popup toggle={toggle} id={agent.id} addResources={addResources} top={top}
                                    left={left}/>}
                         {agent.resources.map((item, index) => (
                             <button className="resource-button" key={index}>
