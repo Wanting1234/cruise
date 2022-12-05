@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import './Navbar.css'
 
-export const Navbar = () => {
+export const Navbar = ({changeFilter}) => {
     const tabList = ['All', 'Physical', 'Virtual'];
     const [active, setActive] = useState('All');
 
     const handleClick = item => {
         setActive(item)
+        changeFilter(item)
     };
 
     return (

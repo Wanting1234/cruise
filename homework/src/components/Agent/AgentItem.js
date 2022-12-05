@@ -7,19 +7,9 @@ export const AgentItem = ({agent, deleteResource, addResources}) => {
         deleteResource(id, index);
     };
     const [isInputShowed, setIsInputShowed] = useState(false)
-    const [top, setTop] = useState(0);
-    const [left, setLeft] = useState(0);
 
     const toggle = () => {
         setIsInputShowed(false)
-    }
-
-    const setInputPosition = (e) => {
-        const box = e.target.getBoundingClientRect();
-        const top = box.top - box.height;
-        const left = box.left - 205;
-        setTop(top)
-        setLeft(left)
     }
 
     document.addEventListener("click", event => {
@@ -33,7 +23,7 @@ export const AgentItem = ({agent, deleteResource, addResources}) => {
         if (cDom && !cDom.contains(tDom)) {
             setIsInputShowed(false)
         }
-        })
+    })
 
     return (
         <div key={agent.id} className="agent-item">
@@ -57,14 +47,13 @@ export const AgentItem = ({agent, deleteResource, addResources}) => {
                 </div>
                 <div className="agent-operation">
                     <div className="operation-group">
+                        <div className="add-section">
                         <button className="add-button">
-                            {/*<span className="iconfont icon-plus"></span>*/}
-                            <span className={"iconfont icon-plus"} id={`plus-${agent.id}`} onClick={setInputPosition} ></span>
-
+                            <span className={"iconfont icon-plus"} id={`plus-${agent.id}`} ></span>
                         </button>
                         {isInputShowed &&
-                            <Popup toggle={toggle} id={agent.id} addResources={addResources} top={top}
-                                   left={left}/>}
+                            <Popup toggle={toggle} id={agent.id} addResources={addResources} />}
+                        </div>
                         {agent.resources.map((item, index) => (
                             <button className="resource-button" key={index}>
                                 <span>{item}</span>

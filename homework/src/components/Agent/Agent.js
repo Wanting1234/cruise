@@ -9,6 +9,7 @@ import {AgentItem} from "./AgentItem";
 
 const Agent = () => {
     const [agents, setAgents] = useState([])
+    const [filter, setFilter] = useState('All')
 
     const fetchAgents = () => {
         getAgents().then((data) => setAgents(data));
@@ -41,22 +42,43 @@ const Agent = () => {
         setAgents(newAgentListAfterAdd)
     }
 
+    const buildingNum = agents.filter((agent) => agent.status === 'building').length;
+    const idleNum = agents.filter((agent) => agent.status === 'idle' ).length;
+    const physicalNum = agents.filter((agent) => agent.type === 'physical').length;
+    const virtualNum = agents.filter((agent) => agent.type === 'virtual').length;
+
+    const getVisibleAgents = () => {
+        if (filter === "Physical") {
+            return agents.filter((agent) => agent.type === 'physical');
+        }
+        if (filter === "Virtual") {
+            return agents.filter((agent) => agent.type === 'virtual');
+        }
+        return agents;
+    };
+
+    const visibleAgents = getVisibleAgents();
+
+    const changeFilter = (filterName) => {
+        setFilter(filterName);
+    };
+
     return (
         <div className="agent">
             <div className="agent-overview">
-                <StatusCard status="building" num={3}/>
-                <StatusCard status="idle" num={5}/>
-                <StatisticsCard physicalNum={4} virtualNum={4}/>
+                <StatusCard status="building" num={buildingNum}/>
+                <StatusCard status="idle" num={idleNum}/>
+                <StatisticsCard physicalNum={physicalNum} virtualNum={virtualNum}/>
             </div>
             <div className="agent-navbar">
-                <Navbar/>
+                <Navbar changeFilter={changeFilter}/>
                 <InputSearch/>
                 <div className="iconfont icon-type icon-th-card"></div>
                 <div className="iconfont icon-type icon-th-list active"></div>
             </div>
             <div className="agent-list">
                 <ul>
-                    {agents.map((agent) => (
+                    {visibleAgents.map((agent) => (
                         <AgentItem key={agent.id} agent={agent}
                                    deleteResource={(id, index) => triggerDeleteResource(id, index)}
                                    addResources={(id, resources) => triggerAddResource(id, resources)}/>

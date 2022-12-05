@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './Popup.css'
 
-export const Popup = ({toggle,addResources, id, top, left}) => {
+export const Popup = ({toggle,addResources, id}) => {
     const [inputText, setInputText] = useState('');
 
     const handleChange = (e) => {
@@ -24,7 +24,7 @@ export const Popup = ({toggle,addResources, id, top, left}) => {
     };
 
     return (
-        <div className="add-input-content" style={{top,left}}>
+        <div className="add-input-content">
             <span className="iconfont icon-close" ></span>
             <form id="form">
                 <label>
