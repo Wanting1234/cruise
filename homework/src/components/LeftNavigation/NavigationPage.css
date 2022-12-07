@@ -1,0 +1,29 @@
+.navigation-page {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    width: 50%;
+    height: 30%;
+}
+
+.navigation-page h1 {
+    text-align: center;
+    font-size: 50px;
+    margin: 30px;
+}
+
+.esc-btn {
+    appearance: none;
+    border-radius: 5px;
+    border: none;
+    padding: 0.5rem 2rem;
+    text-transform: capitalize;
+    font-weight: bolder;
+    font-size: large;
+    margin: 0 45%;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #2D4054;
+}

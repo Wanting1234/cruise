@@ -1,5 +1,6 @@
 import React from "react";
 import './Navigation.css'
+import {Link} from "react-router-dom";
 
 const Navigation = () => {
     const menu = [
@@ -13,8 +14,10 @@ const Navigation = () => {
         <section className="navigation-message">
             <ul>
                 {menu.map((item) => <li className="nav" key={item.id}>
+                    <Link to={`${item.name.toLowerCase()}`} className="link">
                     <span className={`iconfont ${item.icon}`}></span>
                     <span>{item.name}</span>
+                    </Link>
                 </li>)}
             </ul>
         </section>

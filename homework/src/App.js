@@ -1,14 +1,21 @@
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import Footer from "./components/Footer/Footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {NavigationPage} from "./components/LeftNavigation/NavigationPage";
+import {Home} from "./components/Home/Home";
 
 function App() {
     return (
-        <div className="App">
-            <Header/>
-            <Main/>
-            <Footer />
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />}/>
+                <Route path="/dashboard" element={<NavigationPage match={'dashboard'} />}/>
+                <Route path="/agent" element={<NavigationPage match={'agent'} />}/>
+                <Route path="/my cruise" element={<NavigationPage match={'my cruise'} />}/>
+                <Route path="/help" element={<NavigationPage match={'help'} />}/>
+
+
+
+            </Routes>
+        </BrowserRouter>
     );
 }
 
