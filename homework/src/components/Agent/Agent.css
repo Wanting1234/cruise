@@ -18,3 +18,7 @@
     color: #00B4CF;
 }
 
+.agent-list li {
+    list-style: none;
+}
+

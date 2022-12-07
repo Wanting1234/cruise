@@ -5,7 +5,7 @@ import {StatisticsCard} from "./StatisticsCard";
 import {Navbar} from "./Navbar";
 import {InputSearch} from "./InputSearch";
 import {getAgents, patchAgent} from "../../api/api";
-import {AgentItem} from "./AgentItem";
+import {AgentList} from "./AgentList";
 
 const Agent = () => {
     const [agents, setAgents] = useState([])
@@ -43,21 +43,9 @@ const Agent = () => {
     }
 
     const buildingNum = agents.filter((agent) => agent.status === 'building').length;
-    const idleNum = agents.filter((agent) => agent.status === 'idle' ).length;
+    const idleNum = agents.filter((agent) => agent.status === 'idle').length;
     const physicalNum = agents.filter((agent) => agent.type === 'physical').length;
     const virtualNum = agents.filter((agent) => agent.type === 'virtual').length;
-
-    const getVisibleAgents = () => {
-        if (filter === "Physical") {
-            return agents.filter((agent) => agent.type === 'physical');
-        }
-        if (filter === "Virtual") {
-            return agents.filter((agent) => agent.type === 'virtual');
-        }
-        return agents;
-    };
-
-    const visibleAgents = getVisibleAgents();
 
     const changeFilter = (filterName) => {
         setFilter(filterName);
@@ -77,13 +65,11 @@ const Agent = () => {
                 <div className="iconfont icon-type icon-th-list active"></div>
             </div>
             <div className="agent-list">
-                <ul>
-                    {visibleAgents.map((agent) => (
-                        <AgentItem key={agent.id} agent={agent}
-                                   deleteResource={(id, index) => triggerDeleteResource(id, index)}
-                                   addResources={(id, resources) => triggerAddResource(id, resources)}/>
-                    ))}
-                </ul>
+                <AgentList agents={agents} filter={filter}
+                           deleteResource={(id, index) => triggerDeleteResource(id, index)}
+                           addResources={(id, resources) => {
+                               triggerAddResource(id, resources)
+                           }}/>
             </div>
         </div>
     )

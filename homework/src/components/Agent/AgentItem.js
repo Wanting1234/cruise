@@ -14,8 +14,7 @@ export const AgentItem = ({agent, deleteResource, addResources}) => {
 
     document.addEventListener("click", event => {
         const tDom = event.target;
-        const aDom = document.getElementById(`plus-${agent.id}`);
-
+        const aDom = document.getElementById(`add-button-${agent.id}`)
         if (tDom === aDom) {
             setIsInputShowed(true)
         }
@@ -48,13 +47,13 @@ export const AgentItem = ({agent, deleteResource, addResources}) => {
                 <div className="agent-operation">
                     <div className="operation-group">
                         <div className="add-section">
-                        <button className="add-button">
+                        <button className="add-button" id={`add-button-${agent.id}`}>
                             <span className={"iconfont icon-plus"} id={`plus-${agent.id}`} ></span>
                         </button>
                         {isInputShowed &&
                             <Popup toggle={toggle} id={agent.id} addResources={addResources} />}
                         </div>
-                        {agent.resources.map((item, index) => (
+                        {agent.resources?.map((item, index) => (
                             <button className="resource-button" key={index}>
                                 <span>{item}</span>
                                 <span className="iconfont icon-trash"
