@@ -4,30 +4,31 @@ import {StatusCard} from "./StatusCard";
 import {StatisticsCard} from "./StatisticsCard";
 import {Navbar} from "./Navbar";
 import {InputSearch} from "./InputSearch";
-import {getAgents, patchAgent} from "../../api/api";
 import {AgentList} from "./AgentList";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAgents, selectAllAgents} from "../../features/agentSlice";
 
 const Agent = () => {
-    const [agents, setAgents] = useState([])
     const [filter, setFilter] = useState('All')
+    const dispatch = useDispatch()
+    const agents = useSelector(selectAllAgents)
 
-    const fetchAgents = () => {
-        getAgents().then((data) => setAgents(data));
-    };
+    const agentStatus = useSelector(state => state.agents.status)
 
     useEffect(() => {
-        fetchAgents();
-    }, []);
+        if (agentStatus === 'idle') {
+            dispatch(fetchAgents())
+        }
+    }, [agentStatus, dispatch])
+
 
     const triggerDeleteResource = (id, index) => {
         const newAgentListAfterDelete = agents.map(agent => {
             if (agent.id === id) {
                 agent.resources.splice(index, 1);
-                patchAgent(agent).then(() => fetchAgents());
             }
             return agent;
         })
-        setAgents(newAgentListAfterDelete)
     }
 
     const triggerAddResource = (id, resources) => {
@@ -35,11 +36,9 @@ const Agent = () => {
         const newAgentListAfterAdd = agents.map(agent => {
             if (agent.id === id) {
                 agent.resources = agent.resources.concat(addResources)
-                patchAgent(agent).then(() => fetchAgents())
             }
             return agent;
         })
-        setAgents(newAgentListAfterAdd)
     }
 
     const buildingNum = agents.filter((agent) => agent.status === 'building').length;
