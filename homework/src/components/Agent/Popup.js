@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './Popup.css'
 
-export const Popup = ({toggle,addResources, id}) => {
+export const Popup = ({toggle,id}) => {
     const [inputText, setInputText] = useState('');
 
     const handleChange = (e) => {
@@ -12,7 +12,7 @@ export const Popup = ({toggle,addResources, id}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (inputText.length > 0) {
-            addResources(id, inputText)
+            // addResources(id, inputText)
         }
         toggle();
     };

@@ -12,34 +12,13 @@ const Agent = () => {
     const [filter, setFilter] = useState('All')
     const dispatch = useDispatch()
     const agents = useSelector(selectAllAgents)
-
-    const agentStatus = useSelector(state => state.agents.status)
+    const agentStatus = useSelector(state => state.agents.fetchStatus)
 
     useEffect(() => {
         if (agentStatus === 'idle') {
             dispatch(fetchAgents())
         }
     }, [agentStatus, dispatch])
-
-
-    const triggerDeleteResource = (id, index) => {
-        const newAgentListAfterDelete = agents.map(agent => {
-            if (agent.id === id) {
-                agent.resources.splice(index, 1);
-            }
-            return agent;
-        })
-    }
-
-    const triggerAddResource = (id, resources) => {
-        const addResources = resources.split(',').map(item => item.trim()).filter(item => item !== '');
-        const newAgentListAfterAdd = agents.map(agent => {
-            if (agent.id === id) {
-                agent.resources = agent.resources.concat(addResources)
-            }
-            return agent;
-        })
-    }
 
     const buildingNum = agents.filter((agent) => agent.status === 'building').length;
     const idleNum = agents.filter((agent) => agent.status === 'idle').length;
@@ -64,11 +43,7 @@ const Agent = () => {
                 <div className="iconfont icon-type icon-th-list active"></div>
             </div>
             <div className="agent-list">
-                <AgentList agents={agents} filter={filter}
-                           deleteResource={(id, index) => triggerDeleteResource(id, index)}
-                           addResources={(id, resources) => {
-                               triggerAddResource(id, resources)
-                           }}/>
+                <AgentList filter={filter} />
             </div>
         </div>
     )

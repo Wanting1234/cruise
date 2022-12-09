@@ -1,11 +1,21 @@
 import React, {useEffect, useState} from "react";
 import './AgentItem.css'
 import {Popup} from "./Popup";
+import {useDispatch} from "react-redux";
+import {updateAgent} from "../../features/agentSlice";
 
-export const AgentItem = ({agent, deleteResource, addResources}) => {
-    const handleDelete = (id, index) => {
-        deleteResource(id, index);
+export const AgentItem = ({ agent }) => {
+    const dispatch = useDispatch();
+
+    const handleDelete = async (agent, index) => {
+        const updatedAgent = {
+            ...agent,
+            resources: agent.resources.filter((_, i) => i !== index)
+        }
+
+        await dispatch(updateAgent(updatedAgent)).unwrap();
     };
+
     const [isInputShowed, setIsInputShowed] = useState(false)
 
     const toggle = () => {
@@ -53,13 +63,14 @@ export const AgentItem = ({agent, deleteResource, addResources}) => {
                                 <span className={"iconfont icon-plus"} id={`plus-${agent.id}`}></span>
                             </button>
                             {isInputShowed &&
-                                <Popup toggle={toggle} id={agent.id} addResources={addResources}/>}
+                                <Popup toggle={toggle} id={agent.id} />}
                         </div>
                         {agent.resources?.map((item, index) => (
                             <button className="resource-button" key={index}>
                                 <span>{item}</span>
                                 <span className="iconfont icon-trash"
-                                      onClick={() => handleDelete(agent.id, index)}></span>
+                                      onClick={() => handleDelete(agent, index)}
+                                 ></span>
                             </button>
                         ))
                         }
