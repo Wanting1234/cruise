@@ -1,123 +1,45 @@
 import React from "react";
 import '@testing-library/jest-dom';
-import {render, screen} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
 import {AgentList} from "../components/Agent/AgentList";
+import store from "../app/store";
+import {fetchAgents} from "../features/agentSlice";
+import {Provider} from "react-redux";
 
 describe('AgentList', () => {
-    test('should render agent list when filter is all', () => {
-        const mockAgents = [
-            {
-                "name": "bjstdmngbdr08.thoughtworks.com",
-                "os": "windows",
-                "status": "building",
-                "type": "virtual",
-                "ip": "192.168.1.80",
-                "location": "/var/lib/cruise-agent",
-                "resources": [
-                    "Firefox",
-                    "Safari",
-                    "Ubuntu",
-                    "chrome"
-                ],
-                "id": 1
-            },
-            {
-                "name": "bjstdmngbdr08.thoughtworks.com",
-                "os": "windows",
-                "status": "building",
-                "type": "physical",
-                "ip": "192.168.1.80",
-                "location": "/var/lib/cruise-agent",
-                "resources": [
-                    "Firefox",
-                    "Safari",
-                    "Ubuntu"
-                ],
-                "id": 2
-            },
-        ];
+    test('should render agent list when filter is all', async () => {
+        store.dispatch(fetchAgents())
 
-        render(<AgentList agents={mockAgents} filter={"All"} addResources={jest.fn()} deleteResource={jest.fn()}/>)
+        render(
+            <Provider store={store}>
+                <AgentList filter={"All"}/>
+            </Provider>)
 
-        expect(screen.getByRole('list')).toBeInTheDocument();
-        expect(screen.getAllByRole('listitem')).toHaveLength(2);
+        await waitFor(() => expect(screen.getByRole('list')).toBeInTheDocument())
+        await waitFor(() => expect(screen.getAllByRole('listitem')).toHaveLength(11))
     });
 
-    test('should render agent list when filter is physical', () => {
-        const mockAgents = [
-            {
-                "name": "bjstdmngbdr08.thoughtworks.com",
-                "os": "windows",
-                "status": "building",
-                "type": "virtual",
-                "ip": "192.168.1.80",
-                "location": "/var/lib/cruise-agent",
-                "resources": [
-                    "Firefox",
-                    "Safari",
-                    "Ubuntu",
-                    "chrome"
-                ],
-                "id": 1
-            },
-            {
-                "name": "bjstdmngbdr08.thoughtworks.com",
-                "os": "windows",
-                "status": "building",
-                "type": "physical",
-                "ip": "192.168.1.80",
-                "location": "/var/lib/cruise-agent",
-                "resources": [
-                    "Firefox",
-                    "Safari",
-                    "Ubuntu"
-                ],
-                "id": 2
-            },
-        ];
+    test('should render agent list when filter is physical', async () => {
+        store.dispatch(fetchAgents())
 
-        render(<AgentList agents={mockAgents} filter={"Physical"} addResources={jest.fn()} deleteResource={jest.fn()}/>)
+        render(
+            <Provider store={store}>
+                <AgentList filter={"Physical"}/>
+            </Provider>)
 
-        expect(screen.getByRole('list')).toBeInTheDocument();
-        expect(screen.getAllByRole('listitem')).toHaveLength(1);
+        await waitFor(() => expect(screen.getByRole('list')).toBeInTheDocument())
+        await waitFor(() => expect(screen.getAllByRole('listitem')).toHaveLength(3))
     });
 
-    test('should render agent list when filter is virtual', () => {
-        const mockAgents = [
-            {
-                "name": "bjstdmngbdr08.thoughtworks.com",
-                "os": "windows",
-                "status": "building",
-                "type": "virtual",
-                "ip": "192.168.1.80",
-                "location": "/var/lib/cruise-agent",
-                "resources": [
-                    "Firefox",
-                    "Safari",
-                    "Ubuntu",
-                    "chrome"
-                ],
-                "id": 1
-            },
-            {
-                "name": "bjstdmngbdr08.thoughtworks.com",
-                "os": "windows",
-                "status": "building",
-                "type": "physical",
-                "ip": "192.168.1.80",
-                "location": "/var/lib/cruise-agent",
-                "resources": [
-                    "Firefox",
-                    "Safari",
-                    "Ubuntu"
-                ],
-                "id": 2
-            },
-        ];
+    test('should render agent list when filter is virtual', async () => {
+        store.dispatch(fetchAgents())
 
-        render(<AgentList agents={mockAgents} filter={"Virtual"} addResources={jest.fn()} deleteResource={jest.fn()}/>)
+        render(
+            <Provider store={store}>
+                <AgentList filter={"Virtual"}/>
+            </Provider>)
 
-        expect(screen.getByRole('list')).toBeInTheDocument();
-        expect(screen.getAllByRole('listitem')).toHaveLength(1);
+        await waitFor(() => expect(screen.getByRole('list')).toBeInTheDocument())
+        await waitFor(() => expect(screen.getAllByRole('listitem')).toHaveLength(8))
     });
 })
