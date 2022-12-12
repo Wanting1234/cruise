@@ -4,8 +4,9 @@ import {useSelector} from "react-redux";
 import {selectAllAgents} from "../../features/agentSlice";
 
 
-export const AgentList = ({filter}) => {
+export const AgentList = () => {
     const agents = useSelector(selectAllAgents)
+    const filter = useSelector((state) => state.filter)
 
     const getVisibleAgents = () => {
         if (filter === "Physical") {

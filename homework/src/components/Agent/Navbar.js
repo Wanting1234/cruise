@@ -1,13 +1,15 @@
-import React, {useState} from "react";
+import React from "react";
 import './Navbar.css'
+import {useDispatch, useSelector} from "react-redux";
+import {changeFilter} from "../../features/filterSlice";
 
-export const Navbar = ({changeFilter}) => {
+export const Navbar = () => {
     const tabList = ['All', 'Physical', 'Virtual'];
-    const [active, setActive] = useState('All');
+    const active = useSelector((state) => state.filter)
+    const dispatch = useDispatch()
 
     const handleClick = item => {
-        setActive(item)
-        changeFilter(item)
+        dispatch(changeFilter(item))
     };
 
     return (

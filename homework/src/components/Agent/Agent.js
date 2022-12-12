@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import './Agent.css'
 import {StatusCard} from "./StatusCard";
 import {StatisticsCard} from "./StatisticsCard";
@@ -9,7 +9,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAgents, selectAllAgents} from "../../features/agentSlice";
 
 const Agent = () => {
-    const [filter, setFilter] = useState('All')
     const dispatch = useDispatch()
     const agents = useSelector(selectAllAgents)
     const agentStatus = useSelector(state => state.agents.fetchStatus)
@@ -25,10 +24,6 @@ const Agent = () => {
     const physicalNum = agents.filter((agent) => agent.type === 'physical').length;
     const virtualNum = agents.filter((agent) => agent.type === 'virtual').length;
 
-    const changeFilter = (filterName) => {
-        setFilter(filterName);
-    };
-
     return (
         <div className="agent">
             <div className="agent-overview">
@@ -37,13 +32,13 @@ const Agent = () => {
                 <StatisticsCard physicalNum={physicalNum} virtualNum={virtualNum}/>
             </div>
             <div className="agent-navbar">
-                <Navbar changeFilter={changeFilter}/>
+                <Navbar />
                 <InputSearch/>
                 <div className="iconfont icon-type icon-th-card"></div>
                 <div className="iconfont icon-type icon-th-list active"></div>
             </div>
             <div className="agent-list">
-                <AgentList filter={filter} />
+                <AgentList />
             </div>
         </div>
     )
