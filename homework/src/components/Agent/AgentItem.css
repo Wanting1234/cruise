@@ -58,13 +58,12 @@
     flex-wrap: wrap;
 }
 
-.add-section {
-    position: relative;
-}
-
 .add-button {
     background-color: #00B4CF;
     border: none;
+    padding: 0;
+    width: 30px;
+    height: 30px;
 }
 
 .add-button:hover {

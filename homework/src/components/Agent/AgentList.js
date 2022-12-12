@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import {selectAllAgents} from "../../features/agentSlice";
 
 
-export const AgentList = ({ filter }) => {
+export const AgentList = ({filter}) => {
     const agents = useSelector(selectAllAgents)
 
     const getVisibleAgents = () => {
@@ -18,10 +18,10 @@ export const AgentList = ({ filter }) => {
     };
     const visibleAgents = getVisibleAgents();
 
-    return(
+    return (
         <ul>
             {visibleAgents.map((agent) => (<li key={agent.id}>
-                <AgentItem agent={agent} />
+                <AgentItem agent={agent}/>
             </li>))}
         </ul>
     );

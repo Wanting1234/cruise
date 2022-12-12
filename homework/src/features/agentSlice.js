@@ -50,6 +50,4 @@ const agentsSlice = createSlice({
 
 export default agentsSlice.reducer
 
-export const {deleteResourceOfAgent} = agentsSlice.actions
-
 export const selectAllAgents = (state) => state.agents.agents

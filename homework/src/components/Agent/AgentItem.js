@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import './AgentItem.css'
-import {Popup} from "./Popup";
 import {useDispatch} from "react-redux";
 import {updateAgent} from "../../features/agentSlice";
+import {selectCurrentAgentId} from "../../features/selectedAgentIdSlice";
+import {setPopupBoxState} from "../../features/popupSlice";
 
-export const AgentItem = ({ agent }) => {
+export const AgentItem = ({agent}) => {
     const dispatch = useDispatch();
 
     const handleDelete = async (agent, index) => {
@@ -12,29 +13,13 @@ export const AgentItem = ({ agent }) => {
             ...agent,
             resources: agent.resources.filter((_, i) => i !== index)
         }
-
         await dispatch(updateAgent(updatedAgent)).unwrap();
     };
 
-    const [isInputShowed, setIsInputShowed] = useState(false)
-
-    const toggle = () => {
-        setIsInputShowed(false)
+    function handleAdd(id) {
+        dispatch(selectCurrentAgentId(id))
+        dispatch(setPopupBoxState(true))
     }
-
-    useEffect(() => {
-        document.addEventListener("click", event => {
-            const tDom = event.target;
-            const aDom = document.getElementById(`add-button-${agent.id}`)
-            if (tDom === aDom) {
-                setIsInputShowed(true)
-            }
-            const cDom = document.querySelector("#form");
-            if (cDom && !cDom.contains(tDom)) {
-                setIsInputShowed(false)
-            }
-        })
-    }, [isInputShowed])
 
     return (
         <div key={agent.id} className="agent-item">
@@ -58,19 +43,16 @@ export const AgentItem = ({ agent }) => {
                 </div>
                 <div className="agent-operation">
                     <div className="operation-group">
-                        <div className="add-section">
-                            <button className="add-button" id={`add-button-${agent.id}`}>
-                                <span className={"iconfont icon-plus"} id={`plus-${agent.id}`}></span>
-                            </button>
-                            {isInputShowed &&
-                                <Popup toggle={toggle} id={agent.id} />}
-                        </div>
+                        <button className="add-button" id={`add-button-${agent.id}`}
+                                onClick={() => handleAdd(agent.id)}>
+                            <span className={"iconfont icon-plus"} id={`plus-${agent.id}`}></span>
+                        </button>
                         {agent.resources?.map((item, index) => (
                             <button className="resource-button" key={index}>
                                 <span>{item}</span>
                                 <span className="iconfont icon-trash"
                                       onClick={() => handleDelete(agent, index)}
-                                 ></span>
+                                ></span>
                             </button>
                         ))
                         }

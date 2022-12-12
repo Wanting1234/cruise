@@ -1,41 +1,57 @@
 import React, {useState} from "react";
 import './Popup.css'
+import {useDispatch, useSelector} from "react-redux";
+import {setPopupBoxState} from "../../features/popupSlice";
+import {selectAllAgents, updateAgent} from "../../features/agentSlice";
 
-export const Popup = ({toggle,id}) => {
+export const Popup = () => {
     const [inputText, setInputText] = useState('');
+    const agentId = useSelector((state) => state.selectedAgent)
+    const agents = useSelector(selectAllAgents)
+    const dispatch = useDispatch();
 
     const handleChange = (e) => {
         const content = e.target.value.trim();
         setInputText(content)
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (inputText.length > 0) {
-            // addResources(id, inputText)
+        const agent = agents.find((agent) => agent.id === agentId)
+        const addResources = inputText.split(',').map(item => item.trim()).filter(item => item !== '');
+        if (agent && addResources.length > 0) {
+            const updatedAgent = {
+                ...agent,
+                resources: agent.resources.concat(addResources)
+            }
+           await dispatch(updateAgent(updatedAgent)).unwrap()
         }
-        toggle();
+        dispatch(setPopupBoxState(false))
     };
 
     const handleCancel = (e) => {
         e.preventDefault();
         setInputText('')
-        toggle();
+        dispatch(setPopupBoxState(false))
     };
 
     return (
-        <div className="add-input-content">
-            <span className="iconfont icon-close" ></span>
-            <form id="form">
-                <label>
-                    Separate multiple resource name with commas
+        <>
+            <div className="popup-box" onClick={handleCancel}></div>
+            <div className="add-input-content">
+                <span className="iconfont icon-close" onClick={handleCancel}></span>
+                <form id="form">
+                    <label>
+                        Separate multiple resource name with commas
+                        <br/>
+                        <input className="add-input" type="text" placeholder="e.g.Chrome,Firefox"
+                               onChange={handleChange}/>
+                    </label>
                     <br/>
-                    <input className="add-input" type="text" placeholder="e.g.Chrome,Firefox" onChange={handleChange}/>
-                </label>
-                <br/>
-                <button className="add-resources" onClick={handleSubmit}>Add Resources</button>
-                <button className="cancel" onClick={handleCancel}>Cancel</button>
-            </form>
-        </div>
+                    <button className="add-resources" onClick={handleSubmit}>Add Resources</button>
+                    <button className="cancel" onClick={handleCancel}>Cancel</button>
+                </form>
+            </div>
+        </>
     );
 }

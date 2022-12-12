@@ -1,9 +1,16 @@
-.add-input-content {
+.popup-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.add-input-content {
+    z-index: 2;
     background-color: white;
     position: absolute;
-    top: 130%;
-    left: -66%;
     width: 570px;
     padding: 10px 10px;
     border: 2px solid #00B4CF;
