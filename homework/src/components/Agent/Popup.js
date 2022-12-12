@@ -8,6 +8,9 @@ export const Popup = () => {
     const [inputText, setInputText] = useState('');
     const agentId = useSelector((state) => state.selectedAgent)
     const agents = useSelector(selectAllAgents)
+    const position = useSelector((state) => state.position)
+    const left = position.x
+    const top = position.y
     const dispatch = useDispatch();
 
     const handleChange = (e) => {
@@ -38,7 +41,7 @@ export const Popup = () => {
     return (
         <>
             <div className="popup-box" onClick={handleCancel}></div>
-            <div className="add-input-content">
+            <div className="add-input-content" style={{left, top}}>
                 <span className="iconfont icon-close" onClick={handleCancel}></span>
                 <form id="form">
                     <label>

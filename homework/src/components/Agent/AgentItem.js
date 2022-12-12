@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux";
 import {updateAgent} from "../../features/agentSlice";
 import {selectCurrentAgentId} from "../../features/selectedAgentIdSlice";
 import {setPopupBoxState} from "../../features/popupSlice";
+import {setPosition} from "../../features/positionSlice";
 
 export const AgentItem = ({agent}) => {
     const dispatch = useDispatch();
@@ -16,10 +17,20 @@ export const AgentItem = ({agent}) => {
         await dispatch(updateAgent(updatedAgent)).unwrap();
     };
 
-    function handleAdd(id) {
+    const getPosition = button => {
+        const box = button.target.getBoundingClientRect()
+        const x = box.left - box.width / 2
+        const y = box.top + box.height * 1.5
+        return {x, y};
+    };
+
+    const handleAdd = (id, e) => {
         dispatch(selectCurrentAgentId(id))
         dispatch(setPopupBoxState(true))
-    }
+
+        const {x, y} = getPosition(e);
+        dispatch(setPosition({x, y}))
+    };
 
     return (
         <div key={agent.id} className="agent-item">
@@ -44,7 +55,7 @@ export const AgentItem = ({agent}) => {
                 <div className="agent-operation">
                     <div className="operation-group">
                         <button className="add-button" id={`add-button-${agent.id}`}
-                                onClick={() => handleAdd(agent.id)}>
+                                onClick={(event) => handleAdd(agent.id, event)}>
                             <span className={"iconfont icon-plus"} id={`plus-${agent.id}`}></span>
                         </button>
                         {agent.resources?.map((item, index) => (
