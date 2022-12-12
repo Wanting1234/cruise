@@ -22,51 +22,40 @@
     border-radius: 50%;
     position: absolute;
     right: 100px;
+    top: 10px;
 }
 
-.user-menu-list {
+.dropdown {
+    display: inline-block;
+    z-index: 2;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
     position: absolute;
-    right: 85px;
-    opacity: 0;
-}
-
-.header label {
-    cursor: default;
-    position: absolute;
-    right: 85px;
-}
-
-.user-menu-list + label {
-    position: absolute;
-    top: 18px;
-    right: 45px;
-    font-size: 0;
-    transform: rotate(90deg);
-}
-
-.user-menu-list + label:before {
-    content: "❯";
-    font-size: 20px;
-    color: #CCC;
-    padding: 10px 27px 10px 27px;
-}
-
-.header-user-menu-list {
-    list-style: none;
-    position: absolute;
-    top: 50px;
-    right: 55px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    right: 3%;
     background-color: #FFFFFF;
-    padding: 0;
-    margin: 10px;
 }
 
-.user-menu-list-item {
-    margin: 8px 0;
-    padding: 10px 20px;
+.dropdown-content ul {
+    list-style: none;
+    padding: 0 10px;
 }
 
-.user-menu-list-item:hover {
+.dropdown-content li {
+    padding: 10px;
+}
+
+.user-link {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.dropdown-content li:hover {
     background-color: #EFEFEF;
 }

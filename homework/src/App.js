@@ -11,9 +11,8 @@ function App() {
                 <Route path="/agent" element={<NavigationPage match={'agent'} />}/>
                 <Route path="/my cruise" element={<NavigationPage match={'my cruise'} />}/>
                 <Route path="/help" element={<NavigationPage match={'help'} />}/>
-
-
-
+                <Route path="/Profile" element={<NavigationPage match={'Profile'} />} />
+                <Route path="/Sign Out" element={<NavigationPage match={'Sign Out'} />} />
             </Routes>
         </BrowserRouter>
     );

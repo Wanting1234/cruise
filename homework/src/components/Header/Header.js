@@ -1,43 +1,31 @@
-import React, {useState} from "react";
+import React from "react";
 import logo from '../../image/logo/logo.svg'
 import avatar from '../../image/logo/avatar.jpg'
 import './Header.css'
+import {Link} from "react-router-dom";
 
 const Header = () => {
-    const [isMenuShowed, setIsMenuShowed] = useState(false);
     const menu = [
-        { icon: 'icon-id-card', label: 'Profile' },
-        { icon: 'icon-sign-in', label: 'Sign Out' }
+        {icon: 'icon-id-card', label: 'Profile'},
+        {icon: 'icon-sign-in', label: 'Sign Out'}
     ]
 
-    function handleClick() {
-        setIsMenuShowed(!isMenuShowed);
-    }
-
-    return(
+    return (
         <header className="header">
             <img src={logo} alt="cruise" className="logo"/>
-            <img src={avatar} alt="user-avatar" className="user-avatar"/>
-            <input type="checkbox"
-                   className="user-menu-list"
-                   id="user-menu-list"
-                   onClick={handleClick}
-            />
-            <label htmlFor="user-menu-list"></label>
-            {!isMenuShowed ?
-                null :
-                <section>
-                    <ul className="header-user-menu-list">
-                        {menu.map((item, index) => (
-                            <li className="user-menu-list-item" key={index}>
+            <div className="dropdown">
+                <img src={avatar} alt="user-avatar" className="user-avatar"/>
+                <div className="dropdown-content">
+                    <ul>
+                        {menu.map((item) => <li key={item.label}>
+                            <Link to={item.label} className="user-link">
                                 <span className={`iconfont ${item.icon}`}></span>
-                                <span className="user-menu-list-item-label">{item.label}</span>
-                            </li>
-                        ))}
+                                <span>{item.label}</span>
+                            </Link>
+                        </li>)}
                     </ul>
-                </section>
-
-            }
+                </div>
+            </div>
         </header>
     );
 }
