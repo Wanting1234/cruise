@@ -45,17 +45,31 @@ p {
     left: 30%;
     font-size: 144px;
     color: rgba(255, 255, 255, 0.2);
-    animation: change 2s;
+}
+
+.icon-cog {
+    animation: change-cog 2s;
     animation-iteration-count: infinite;
 }
 
-@keyframes change {
+@keyframes change-cog {
     0%   {transform: rotate(0deg);}
     25%  {transform: rotate(90deg)}
     50%  {transform: rotate(180deg);}
     75%  {transform: rotate(270deg);}
-    100% {transform: rotate(270deg);}
+    100% {transform: rotate(360deg);}
 }
+
+.icon-coffee {
+    animation: change-coffee 2s linear alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes change-coffee {
+    from {left: 0}
+    to {left: calc(100% - 144px)}
+}
+
 
 .card-overview {
     display: flex;
