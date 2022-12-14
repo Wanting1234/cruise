@@ -31,6 +31,9 @@
 
 .navigation-message li:hover {
     background-color: #435466;
+}
+
+.navigation-message li:hover .link {
     color: #00B4CF;
 }
 
@@ -47,7 +50,7 @@
     color: #FFFFFF;
 }
 
-.link:hover {
+.active-li {
     color: #00B4CF;
     background-color: #435466;
 }
