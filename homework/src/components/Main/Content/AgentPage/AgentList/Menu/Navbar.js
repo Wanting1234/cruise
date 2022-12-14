@@ -1,7 +1,7 @@
 import React from "react";
 import './Navbar.css'
 import {useDispatch, useSelector} from "react-redux";
-import {changeFilter} from "../../../../../features/filterSlice";
+import {changeFilter} from "../../../../../../features/filterSlice";
 
 export const Navbar = () => {
     const tabList = ['All', 'Physical', 'Virtual'];

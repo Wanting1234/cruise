@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import {AgentItem} from "./AgentItem/AgentItem";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAgents, selectAllAgents} from "../../../../../features/agentSlice";
+import {Menu} from "./Menu/Menu";
 
 
 export const AgentList = () => {
@@ -29,6 +30,8 @@ export const AgentList = () => {
     const visibleAgents = getVisibleAgents();
 
     return (
+        <>
+        <Menu />
         <div className="agent-list">
             <ul>
                 {visibleAgents.map((agent) => (<li key={agent.id}>
@@ -36,6 +39,7 @@ export const AgentList = () => {
                 </li>))}
             </ul>
         </div>
+        </>
     );
 }
 
