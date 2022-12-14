@@ -1,10 +1,14 @@
 .agent-item {
     padding: 16px;
-    margin: 20px 67px 12px 28px;
+    margin: 20px 0;
     display: flex;
     align-items: center;
     box-sizing: border-box;
     background-color: #FFFFFF;
+}
+
+.agent-os {
+    margin-right: 10px;
 }
 
 .agent-detail {
@@ -14,7 +18,8 @@
 .agent-info, .agent-operation {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-content: flex-start;
 }
 .agent-info {
     margin-bottom: 20px;
@@ -35,13 +40,13 @@
 }
 
 .agent-info .iconfont {
-    font-size: 14px;
+    font-size: 16px;
     color: #ACACAC;
 }
 
 .info-label {
     color: #FFFFFF;
-    padding: 2px 8px;
+    padding: 1px 5px;
     margin-right: 40px;
     font-size: 14px;
 }
@@ -64,6 +69,7 @@
     padding: 0;
     width: 30px;
     height: 30px;
+    margin-right: 4px;
 }
 
 .add-button:hover {
@@ -72,7 +78,8 @@
 
 .add-button .iconfont {
     font-size: 18px;
-    margin: 0;
+    margin: 0 auto;
+    line-height: 30px;
     color: #FFFFFF;
 }
 
@@ -80,11 +87,14 @@
     background-color: #EFEFEF;
     margin: 0 4px;
     border: none;
+    height: 30px;
+    padding: 0 6px;
 }
 
 .resource-button span {
-    font-size: 16px;
+    font-size: 14px;
     text-transform: capitalize;
+    color: #2D4054;
 }
 
 .resource-button .iconfont {

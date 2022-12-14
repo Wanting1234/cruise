@@ -1,0 +1,33 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+}
+
+.agent-navbar {
+    display: flex;
+    margin: 0 10px;
+    background-color: #FFFFFF;
+}
+
+.icon-type {
+    margin: 15px 10px;
+    cursor: pointer;
+}
+
+.active {
+    color: #00B4CF;
+}
+
+.agent-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+    overflow: auto;
+    height: 710px;
+}
+
+.agent-list li {
+    list-style: none;
+}
+

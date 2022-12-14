@@ -1,0 +1,51 @@
+.navigation {
+    background-color: #2D4054;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation-message {
+    position: sticky;
+    top: 70px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 70px - 470px);
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+.navigation-message ul {
+    line-height: 45px;
+    list-style: none;
+}
+
+.navigation-message li {
+    text-align: left;
+    padding: 5px 32px;
+}
+.navigation-message li:first-child {
+    margin-top: 20px;
+}
+
+.navigation-message li:hover {
+    background-color: #435466;
+}
+
+.iconfont {
+    margin-right: 15px;
+}
+
+.iconfont img {
+    height: 18px;
+}
+
+.link {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.link:hover {
+    color: #00B4CF;
+    background-color: #435466;
+}

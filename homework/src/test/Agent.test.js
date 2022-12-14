@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import {render, screen, waitFor} from '@testing-library/react';
-import Agent from "../components/Agent/Agent";
+import Content from "../components/Content/Content";
 import {Provider} from "react-redux";
 import store from "../app/store";
 import {fetchAgents} from "../features/agentSlice";
@@ -10,7 +10,7 @@ describe('Agent', () => {
     test('should render agents overview', () => {
         render(
             <Provider store={store}>
-                <Agent/>
+                <Content/>
             </Provider>
         )
 
@@ -24,7 +24,7 @@ describe('Agent', () => {
     test('should render agent navbar', () => {
         render(
             <Provider store={store}>
-                <Agent/>
+                <Content/>
             </Provider>
         )
 
@@ -41,7 +41,7 @@ describe('Agent', () => {
 
         render(
             <Provider store={store}>
-                <Agent/>
+                <Content/>
             </Provider>
         )
 

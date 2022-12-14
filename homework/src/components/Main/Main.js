@@ -1,13 +1,13 @@
 import React from "react";
-import LeftNavigation from "../LeftNavigation/LeftNavigation";
-import Agent from "../Agent/Agent";
+import Navigation from "../Navigation/Navigation";
+import Content from "../Content/Content";
 import './Main.css'
 
 const Main = () => {
     return(
         <div className="main">
-            <LeftNavigation />
-            <Agent />
+            <Navigation />
+            <Content />
         </div>
     );
 }

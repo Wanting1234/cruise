@@ -1,8 +1,11 @@
 import React from "react";
 import '@testing-library/jest-dom';
-import {render, screen} from '@testing-library/react';
-import {AgentItem} from "../components/Agent/AgentItem";
+import {render, screen, waitFor} from '@testing-library/react';
+import {AgentItem} from "../components/Content/AgentList/AgentItem";
 import userEvent from "@testing-library/user-event";
+import {Provider} from "react-redux";
+import store from "../app/store";
+
 
 describe('AgentItem', () => {
     const mockAgent = {
@@ -22,7 +25,10 @@ describe('AgentItem', () => {
     };
 
     test('should render agent item', () => {
-        render(<AgentItem agent={mockAgent} addResources={jest.fn()} deleteResource={jest.fn()}/>)
+        render(
+            <Provider store={store} >
+            <AgentItem agent={mockAgent} />
+            </Provider>)
 
         expect(screen.getByText(mockAgent.name)).toBeInTheDocument();
         expect(screen.getByText(mockAgent.status)).toBeInTheDocument();
@@ -37,18 +43,30 @@ describe('AgentItem', () => {
     });
 
     test('should show popup box when click add-btn', () => {
-        render(<AgentItem agent={mockAgent} addResources={jest.fn()} deleteResource={jest.fn()}/>)
+        render(
+            <Provider store={store} >
+                <AgentItem agent={mockAgent} />
+            </Provider>)
 
         userEvent.click(document.getElementById(`add-button-${mockAgent.id}`))
 
-        expect(screen.getByText('Separate multiple resource name with commas')).toBeInTheDocument();
+        // expect(screen.getByText('Separate multiple resource name with commas')).toBeInTheDocument();
+        expect(selectCurrentAgentId).toHaveBeenCalled();
     });
 
-    test('should call deleteResource function when click delete button', () => {
-        const triggerDeleteResource = jest.fn()
-        render(<AgentItem agent={mockAgent} addResources={jest.fn()} deleteResource={triggerDeleteResource} />)
+    test('should call deleteResource function when click delete button', async () => {
+        // handleDelete = jest.fn()
+        render(
+            <Provider store={store} >
+                <AgentItem agent={mockAgent} />
+            </Provider>)
 
         userEvent.click(document.getElementsByClassName('icon-trash')[0])
-        expect(triggerDeleteResource).toHaveBeenCalled();
+        // expect(handleDelete).toHaveBeenCalled();
+        await waitFor(() => expect(screen.getByText('Firefox')).toBeInTheDocument())
+        expect(screen.getByText('Safari')).toBeInTheDocument()
+        expect(screen.getByText('Ubuntu')).toBeInTheDocument()
+        expect(screen.getByText('chrome')).toBeInTheDocument()
+
     });
 })

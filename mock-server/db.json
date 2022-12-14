@@ -10,8 +10,7 @@
       "resources": [
         "Firefox",
         "Safari",
-        "Ubuntu",
-        "Chrome"
+        "test"
       ],
       "id": 1
     },
@@ -26,7 +25,7 @@
         "Firefox",
         "Safari",
         "Ubuntu",
-        "chrome"
+        "Chrome"
       ],
       "id": 2
     },

@@ -1,9 +1,13 @@
 .footer {
     position: fixed;
+    left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
-    padding: 4px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #2D4054;
     z-index: 1;
     background-color: #ffffff;
     box-shadow: 1px -4px 10px rgba(0, 0, 0, 0.1);

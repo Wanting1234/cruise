@@ -1,6 +1,6 @@
 import React from "react";
 
-export const StatisticsCard = ({physicalNum, virtualNum}) => (
+export const Statistics = ({physicalNum, virtualNum}) => (
     <div className="card-overview">
         <div className="overview-item">
             <span>ALL</span>
