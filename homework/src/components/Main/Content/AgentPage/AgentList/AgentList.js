@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {AgentItem} from "./AgentItem";
+import {AgentItem} from "./AgentItem/AgentItem";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAgents, selectAllAgents} from "../../../../../features/agentSlice";
 

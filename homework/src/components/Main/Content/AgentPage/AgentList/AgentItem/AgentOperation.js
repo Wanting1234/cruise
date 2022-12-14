@@ -1,19 +1,12 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {updateAgent} from "../../../../../features/agentSlice";
-import {selectCurrentAgentId} from "../../../../../features/selectedAgentIdSlice";
-import {setPopupBoxState} from "../../../../../features/popupSlice";
-import {setPosition} from "../../../../../features/positionSlice";
+import {selectCurrentAgentId} from "../../../../../../features/selectedAgentIdSlice";
+import {setPopupBoxState} from "../../../../../../features/popupSlice";
+import {setPosition} from "../../../../../../features/positionSlice";
+import {AgentResource} from "./AgentResource";
 
 export const AgentOperation = ({agent}) => {
     const dispatch = useDispatch();
-    const handleDelete = async (agent, index) => {
-        const updatedAgent = {
-            ...agent,
-            resources: agent.resources.filter((_, i) => i !== index)
-        }
-        await dispatch(updateAgent(updatedAgent)).unwrap();
-    };
 
     const getPosition = event => {
         let selectedElm = event.target
@@ -41,15 +34,7 @@ export const AgentOperation = ({agent}) => {
                         onClick={(event) => handleAdd(agent.id, event)}>
                     <span className={"iconfont icon-plus"} id={`plus-${agent.id}`}></span>
                 </button>
-                {agent.resources?.map((item, index) => (
-                    <button className="resource-button" key={index}>
-                        <span>{item}</span>
-                        <span className="iconfont icon-trash"
-                              onClick={() => handleDelete(agent, index)}
-                        ></span>
-                    </button>
-                ))
-                }
+                {agent.resources && <AgentResource agent={agent}/>}
             </div>
             {agent.status === 'building' ?
                 <button className="deny-button">
