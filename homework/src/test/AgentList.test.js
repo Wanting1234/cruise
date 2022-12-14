@@ -1,7 +1,7 @@
 import React from "react";
 import '@testing-library/jest-dom';
 import {render, screen, waitFor} from '@testing-library/react';
-import {AgentList} from "../components/Content/AgentList/AgentList";
+import {AgentList} from "../components/Main/Content/AgentPage/AgentList/AgentList";
 import store from "../app/store";
 import {fetchAgents} from "../features/agentSlice";
 import {Provider} from "react-redux";

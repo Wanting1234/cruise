@@ -1,12 +1,8 @@
-.navigation-page {
-    position: absolute;
-    top: 30%;
-    left: 25%;
+.content-page {
     width: 50%;
-    height: 30%;
 }
 
-.navigation-page h1 {
+.content-page h1 {
     text-align: center;
     font-size: 50px;
     margin: 30px;

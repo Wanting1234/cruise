@@ -1,12 +1,12 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import {render, screen, waitFor} from '@testing-library/react';
-import Content from "../components/Content/Content";
+import Content from "../components/Main/Content/Content";
 import {Provider} from "react-redux";
 import store from "../app/store";
 import {fetchAgents} from "../features/agentSlice";
 
-describe('Agent', () => {
+describe('Content', () => {
     test('should render agents overview', () => {
         render(
             <Provider store={store}>

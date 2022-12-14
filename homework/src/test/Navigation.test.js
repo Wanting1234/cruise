@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import {render, screen} from '@testing-library/react';
 import {MemoryRouter} from 'react-router-dom';
-import Navigation from "../components/Navigation/Navigation";
+import Navigation from "../components/Main/Navigation/Navigation";
 
 describe('Navigation', () => {
     test('should list all menu', () => {

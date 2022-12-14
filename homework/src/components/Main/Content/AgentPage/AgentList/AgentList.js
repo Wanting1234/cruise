@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {AgentItem} from "./AgentItem";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchAgents, selectAllAgents} from "../../../features/agentSlice";
+import {fetchAgents, selectAllAgents} from "../../../../../features/agentSlice";
 
 
 export const AgentList = () => {

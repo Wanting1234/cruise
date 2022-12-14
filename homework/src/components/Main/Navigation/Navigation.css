@@ -23,6 +23,7 @@
 .navigation-message li {
     text-align: left;
     padding: 5px 32px;
+    color: #FFFFFF;
 }
 .navigation-message li:first-child {
     margin-top: 20px;
@@ -30,6 +31,7 @@
 
 .navigation-message li:hover {
     background-color: #435466;
+    color: #00B4CF;
 }
 
 .iconfont {

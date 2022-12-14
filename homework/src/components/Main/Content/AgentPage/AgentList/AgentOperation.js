@@ -1,9 +1,9 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {updateAgent} from "../../../features/agentSlice";
-import {selectCurrentAgentId} from "../../../features/selectedAgentIdSlice";
-import {setPopupBoxState} from "../../../features/popupSlice";
-import {setPosition} from "../../../features/positionSlice";
+import {updateAgent} from "../../../../../features/agentSlice";
+import {selectCurrentAgentId} from "../../../../../features/selectedAgentIdSlice";
+import {setPopupBoxState} from "../../../../../features/popupSlice";
+import {setPosition} from "../../../../../features/positionSlice";
 
 export const AgentOperation = ({agent}) => {
     const dispatch = useDispatch();

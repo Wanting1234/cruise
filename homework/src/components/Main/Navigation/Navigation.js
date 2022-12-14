@@ -1,5 +1,5 @@
 import React from "react";
-import History from "./History";
+import History from "./History/History";
 import './Navigation.css'
 import {Link} from "react-router-dom";
 

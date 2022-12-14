@@ -1,20 +1,19 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {NavigationPage} from "./components/Navigation/NavigationPage";
-import {Home} from "./components/Home/Home";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import Footer from "./components/Footer/Footer";
+import {Popup} from "./components/PopupBox/Popup";
+import React from "react";
+import {useSelector} from "react-redux";
 
 function App() {
+    const popupState = useSelector((state) => state.popup)
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />}/>
-                <Route path="/dashboard" element={<NavigationPage match={'dashboard'} />}/>
-                <Route path="/agent" element={<NavigationPage match={'agent'} />}/>
-                <Route path="/my cruise" element={<NavigationPage match={'my cruise'} />}/>
-                <Route path="/help" element={<NavigationPage match={'help'} />}/>
-                <Route path="/Profile" element={<NavigationPage match={'Profile'} />} />
-                <Route path="/Sign Out" element={<NavigationPage match={'Sign Out'} />} />
-            </Routes>
-        </BrowserRouter>
+        <div className="App">
+            <Header/>
+            <Main/>
+            {popupState && <Popup />}
+            <Footer />
+        </div>
     );
 }
 

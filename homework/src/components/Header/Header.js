@@ -2,7 +2,6 @@ import React from "react";
 import logo from '../../images/logo/logo.svg'
 import avatar from '../../images/logo/avatar.jpg'
 import './Header.css'
-import {Link} from "react-router-dom";
 
 const Header = () => {
     const menu = [
@@ -18,10 +17,8 @@ const Header = () => {
                 <div className="dropdown-content">
                     <ul>
                         {menu.map((item) => <li key={item.label}>
-                            <Link to={item.label} className="user-link">
                                 <span className={`iconfont ${item.icon}`}></span>
                                 <span>{item.label}</span>
-                            </Link>
                         </li>)}
                     </ul>
                 </div>

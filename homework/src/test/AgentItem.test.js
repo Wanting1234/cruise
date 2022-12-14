@@ -1,7 +1,7 @@
 import React from "react";
 import '@testing-library/jest-dom';
 import {render, screen, waitFor} from '@testing-library/react';
-import {AgentItem} from "../components/Content/AgentList/AgentItem";
+import {AgentItem} from "../components/Main/Content/AgentPage/AgentList/AgentItem";
 import userEvent from "@testing-library/user-event";
 import {Provider} from "react-redux";
 import store from "../app/store";

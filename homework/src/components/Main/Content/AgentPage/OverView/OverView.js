@@ -2,7 +2,7 @@ import {Status} from "./Status";
 import {Statistics} from "./Statistics";
 import React from "react";
 import {useSelector} from "react-redux";
-import {selectAllAgents} from "../../../features/agentSlice";
+import {selectAllAgents} from "../../../../../features/agentSlice";
 
 export const OverView = () => {
     const agents = useSelector(selectAllAgents)
