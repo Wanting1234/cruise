@@ -13,7 +13,7 @@ const Navigation = () => {
     const [active, setActive] = useState('AGENT')
 
     return (
-        <div className="navigation">
+        <div className="navigation" role="navigation">
             <section className="navigation-message">
                 <ul>
                     {menu.map((item) =>

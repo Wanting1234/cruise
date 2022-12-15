@@ -8,7 +8,7 @@ import {OtherPage} from "./Content/OtherPage/OtherPage";
 const Main = () => {
     return(
         <BrowserRouter>
-        <div className="main">
+        <main className="main">
             <Navigation />
             <Routes>
             <Route path="/" element={<Content />}/>
@@ -17,7 +17,7 @@ const Main = () => {
             <Route path="/my cruise" element={<OtherPage match={'my cruise'} />}/>
             <Route path="/help" element={<OtherPage match={'help'} />}/>
             </Routes>
-        </div>
+        </main>
         </BrowserRouter>
     );
 }

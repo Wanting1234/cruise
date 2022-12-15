@@ -5,7 +5,7 @@ import {OverView} from "./AgentPage/OverView/OverView";
 
 const Content = () => {
     return (
-        <div className="content">
+        <div className="content" role="content">
             <OverView/>
             <AgentList/>
         </div>

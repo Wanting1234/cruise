@@ -30,16 +30,16 @@ export const AgentList = () => {
     const visibleAgents = getVisibleAgents();
 
     return (
-        <>
+        <section className="agent-list" role="region" aria-label="agent-list">
         <Menu />
-        <div className="agent-list">
+        <div className="list">
             <ul>
                 {visibleAgents.map((agent) => (<li key={agent.id}>
                     <AgentItem agent={agent}/>
                 </li>))}
             </ul>
         </div>
-        </>
+        </section>
     );
 }
 

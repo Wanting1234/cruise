@@ -4,7 +4,7 @@ import './OtherPage.css';
 
 export const OtherPage = ({match}) => {
         return(
-            <section className="content-page">
+            <section className="content-page" role="content-page">
                 <h1>{match} Loading...</h1>
                 <button className="esc-btn"><Link to="/" className="back-link">esc</Link></button>
             </section>
