@@ -10,9 +10,9 @@ export const AgentOperation = ({agent}) => {
 
     const getPosition = event => {
         let selectedElm = event.target
-        // if (selectedElm === document.querySelector(`#plus-${agent.id}`)) {
-        //     selectedElm = selectedElm.closest(document.querySelector(`#add-button-${agent.id}`))
-        // }
+        if (selectedElm === document.querySelector(`#plus-${agent.id}`)) {
+            selectedElm = selectedElm.parentNode
+        }
         const box = selectedElm.getBoundingClientRect()
         const x = box.left - box.width / 2
         const y = box.top + box.height * 1.5
