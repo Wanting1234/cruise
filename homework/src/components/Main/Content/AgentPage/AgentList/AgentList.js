@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {AgentItem} from "./AgentItem/AgentItem";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAgents, selectAllAgents} from "../../../../../features/agentSlice";
@@ -7,8 +7,7 @@ import {Menu} from "./Menu/Menu";
 
 export const AgentList = () => {
     const agents = useSelector(selectAllAgents)
-    const filter = useSelector((state) => state.filter)
-
+    const [filter, setFilter] = useState('All')
     const dispatch = useDispatch()
     const agentStatus = useSelector(state => state.agents.fetchStatus)
 
@@ -31,7 +30,7 @@ export const AgentList = () => {
 
     return (
         <section className="agent-list" role="region" aria-label="agent-list">
-        <Menu />
+        <Menu filter={filter} setFilter={setFilter}/>
         <div className="list">
             <ul>
                 {visibleAgents.map((agent) => (<li key={agent.id}>
