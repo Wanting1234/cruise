@@ -9,7 +9,6 @@ export function renderWithProviders(
     ui,
     {
         preloadedState = {},
-        // Automatically create a store instance if no store was passed in
         store = configureStore({ reducer: { agents: agentReducer }, preloadedState }),
         ...renderOptions
     } = {}
@@ -19,5 +18,3 @@ export function renderWithProviders(
     }
     return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) }
 }
-
-

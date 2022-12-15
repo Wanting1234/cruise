@@ -1,18 +1,18 @@
 import React from "react";
 
 export const Statistics = ({physicalNum, virtualNum}) => (
-    <div className="card-overview">
+    <section className="card-overview">
         <div className="overview-item">
             <span>ALL</span>
-            <span>{physicalNum + virtualNum}</span>
+            <span data-testid="all">{physicalNum + virtualNum}</span>
         </div>
         <div className="overview-item">
             <span>PHYSICAL</span>
-            <span>{physicalNum}</span>
+            <span data-testid="physical">{physicalNum}</span>
         </div>
         <div className="overview-item">
             <span>VIRTUAL</span>
-            <span>{virtualNum}</span>
+            <span data-testid="virtual">{virtualNum}</span>
         </div>
-    </div>
+    </section>
 );
