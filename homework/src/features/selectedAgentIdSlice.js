@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-const {actions, reducer: selectedAgentIdSlice} = createSlice({
+const selectedAgentIdSlice = createSlice({
     name: 'selectedAgent',
     initialState: -1,
     reducers: {
@@ -11,5 +11,5 @@ const {actions, reducer: selectedAgentIdSlice} = createSlice({
     },
 })
 
-export const {selectCurrentAgentId} = actions
-export default selectedAgentIdSlice
+export const {selectCurrentAgentId} = selectedAgentIdSlice.actions
+export default selectedAgentIdSlice.reducer

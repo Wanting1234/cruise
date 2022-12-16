@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-const {actions, reducer: positionSlice} = createSlice({
+const positionSlice = createSlice({
     name: 'position',
     initialState: {
         x:0,
@@ -15,6 +15,6 @@ const {actions, reducer: positionSlice} = createSlice({
     },
 })
 
-export const {setPosition} = actions
+export const {setPosition} = positionSlice.actions
 
-export default positionSlice
+export default positionSlice.reducer

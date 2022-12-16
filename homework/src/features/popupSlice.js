@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-const {actions, reducer: popupSlice} = createSlice({
+const popupSlice = createSlice({
     name: 'popup',
     initialState: false,
     reducers: {
@@ -11,5 +11,5 @@ const {actions, reducer: popupSlice} = createSlice({
     },
 })
 
-export const {setPopupBoxState} = actions
-export default popupSlice
+export const {setPopupBoxState} = popupSlice.actions
+export default popupSlice.reducer
