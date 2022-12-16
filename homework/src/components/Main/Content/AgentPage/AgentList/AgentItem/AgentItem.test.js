@@ -1,0 +1,61 @@
+import {screen, waitFor} from "@testing-library/react";
+import {AgentItem} from "./AgentItem";
+import React from "react";
+import userEvent from "@testing-library/user-event";
+import {renderWithProviders} from "../../../../../../test/utils";
+import {AgentList} from "../AgentList";
+
+describe('AgentItem', () => {
+    const initialAgent = {
+        agents: [
+            {
+                "name": "bjstdmngbdr08.thoughtworks.com",
+                "os": "windows",
+                "status": "building",
+                "type": "virtual",
+                "ip": "192.168.1.80",
+                "location": "/var/lib/cruise-agent",
+                "resources": [
+                    "Firefox",
+                    "Safari",
+                    "Ubuntu",
+                    "Chrome"
+                ],
+                "id": 1
+            }
+        ]
+    }
+    test('should render agent item', async () => {
+        renderWithProviders(<AgentList />, {
+            preloadedState: {
+                agents: initialAgent
+            }
+        })
+
+        expect(screen.getByAltText('agent-os')).toBeInTheDocument();
+        expect(screen.getByText('bjstdmngbdr08.thoughtworks.com')).toBeInTheDocument();
+        expect(screen.getByText('building')).toBeInTheDocument();
+        expect(screen.getByText('192.168.1.80')).toBeInTheDocument();
+        expect(screen.getByText('/var/lib/cruise-agent')).toBeInTheDocument();
+        expect(screen.getByTestId('1')).toHaveClass('add-button');
+        expect(screen.getByTestId('Firefox')).toHaveClass('resource-button');
+        expect(screen.getByTestId('Chrome')).toHaveClass('resource-button');
+        expect(screen.getByText('Deny')).toBeInTheDocument();
+    });
+
+    test('should delete a resource when click del-btn', async () => {
+        renderWithProviders(<AgentList/>, {
+            preloadedState: {
+                agents: initialAgent
+            }
+        })
+
+        expect(screen.getByTestId('Firefox')).toHaveClass('resource-button');
+
+        userEvent.click(screen.getByTestId('del-Firefox'))
+
+        await waitFor(() => {
+            expect(screen.queryByTestId('Firefox')).not.toBeInTheDocument()
+        })
+    })
+})

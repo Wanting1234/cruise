@@ -5,8 +5,8 @@ import ubuntu from '../../../../../../images/os icons/ubuntu.png'
 import debian from '../../../../../../images/os icons/debin.png'
 import suse from '../../../../../../images/os icons/suse.png'
 import centos from '../../../../../../images/os icons/cent_os.png'
-import {AgentInfo} from "./AgentInfo";
-import {AgentOperation} from "./AgentOperation";
+import {AgentInfo} from "./AgentDetail/AgentInfo";
+import {AgentOperation} from "./AgentDetail/AgentOperation";
 
 export const AgentItem = ({agent}) => {
     const menu = {windows, ubuntu, debian, suse, centos}

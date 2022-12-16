@@ -1,8 +1,8 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {selectCurrentAgentId} from "../../../../../../features/selectedAgentIdSlice";
-import {setPopupBoxState} from "../../../../../../features/popupSlice";
-import {setPosition} from "../../../../../../features/positionSlice";
+import {selectCurrentAgentId} from "../../../../../../../features/selectedAgentIdSlice";
+import {setPopupBoxState} from "../../../../../../../features/popupSlice";
+import {setPosition} from "../../../../../../../features/positionSlice";
 import {AgentResource} from "./AgentResource";
 
 export const AgentOperation = ({agent}) => {
@@ -30,7 +30,7 @@ export const AgentOperation = ({agent}) => {
     return(
         <div className="agent-operation">
             <div className="operation-group">
-                <button className="add-button" id={`add-button-${agent.id}`}
+                <button className="add-button" id={`add-button-${agent.id}`} data-testid={agent.id}
                         onClick={(event) => handleAdd(agent.id, event)}>
                     <span className={"iconfont icon-plus"} id={`plus-${agent.id}`}></span>
                 </button>

@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {updateAgent} from "../../../../../../features/agentSlice";
+import {updateAgent} from "../../../../../../../features/agentSlice";
 
 export const AgentResource = ({agent}) => {
     const dispatch = useDispatch();
@@ -13,9 +13,9 @@ export const AgentResource = ({agent}) => {
     };
     return (
         agent.resources.map((resource, index) =>
-            <button className="resource-button" key={index}>
+            <button className="resource-button" key={index} data-testid={resource}>
                 <span>{resource}</span>
-                <span className="iconfont icon-trash" onClick={() => handleDelete(agent, index)}></span>
+                <span className="iconfont icon-trash" data-testid={`del-${resource}`} onClick={() => handleDelete(agent, index)}></span>
             </button>
         )
     )
