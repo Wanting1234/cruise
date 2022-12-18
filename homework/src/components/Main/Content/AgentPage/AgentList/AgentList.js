@@ -12,7 +12,6 @@ export const AgentList = () => {
 
     useEffect(() => {
             dispatch(fetchAgents())
-
     }, [])
 
     const getVisibleAgents = () => {

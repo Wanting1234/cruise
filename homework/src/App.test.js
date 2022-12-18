@@ -21,6 +21,28 @@ describe('App', () => {
           "Chrome"
         ],
         "id": 1
+      },
+      {
+        "name": "bjstdmngbdr10.thoughtworks.com",
+        "os": "ubuntu",
+        "status": "building",
+        "type": "physical",
+        "ip": "192.168.1.117",
+        "location": "/var/lib/cruise-agent",
+        "resources": [
+          "Chrome"
+        ],
+        "id": 2
+      },
+      {
+        "name": "bjstdmngbdr10.thoughtworks.com",
+        "os": "ubuntu",
+        "status": "building",
+        "type": "physical",
+        "ip": "192.168.1.117",
+        "location": "/var/lib/cruise-agent",
+        "resources": [],
+        "id": 3
       }
     ]
   }
@@ -58,4 +80,60 @@ describe('App', () => {
       expect(screen.queryByTestId('Firefox')).not.toBeInTheDocument()
     })
   });
+
+  test('should add a resource when click add resource btn', async () => {
+    renderWithProviders(<App />, {
+      preloadedState: {
+        agents: initialAgent,
+        popup: true,
+        position: {x:0, y:0},
+        selectedAgent: 2,
+      }
+    })
+
+    userEvent.type(screen.getByPlaceholderText('e.g.Chrome,Firefox'), 'test01')
+    userEvent.click(screen.getByText('Add Resources'))
+
+    await waitFor(() => {
+      expect(screen.getByText('Test01')).toBeInTheDocument()
+    })
+  });
+
+  test('should add two resources when click add resource btn', async () => {
+    renderWithProviders(<App />, {
+      preloadedState: {
+        agents: initialAgent,
+        popup: true,
+        position: {x:0, y:0},
+        selectedAgent: 3,
+      }
+    })
+
+    userEvent.type(screen.getByPlaceholderText('e.g.Chrome,Firefox'), 'test02, test03')
+    userEvent.click(screen.getByText('Add Resources'))
+
+    await waitFor(() => {
+      expect(screen.getByText('Test02')).toBeInTheDocument()
+    })
+    await waitFor(() => {
+      expect(screen.getByText('Test03')).toBeInTheDocument()
+    })
+  });
+
+  test('should make popup box invisible when click cancel btn', () => {
+    renderWithProviders(<App />, {
+      preloadedState: {
+        agents: initialAgent,
+        popup: true,
+        position: {x:0, y:0},
+        selectedAgent: 3,
+      }
+    })
+    expect(screen.getByTestId('popup-box')).toBeInTheDocument();
+
+    userEvent.click(screen.getByText('Cancel'))
+
+    expect(screen.queryByTestId('popup-box')).not.toBeInTheDocument();
+  });
+
 })

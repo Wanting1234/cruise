@@ -1,13 +1,11 @@
-import {screen} from "@testing-library/react";
+import {render, screen} from "@testing-library/react";
 import {AgentItem} from "./AgentItem";
 import React from "react";
-import {renderWithProviders} from "../../../../../../test/utils";
-import {AgentList} from "../AgentList";
+import {Provider} from "react-redux";
+import store from "../../../../../../app/store";
 
 describe('AgentItem', () => {
     const initialAgent = {
-        agents: [
-            {
                 "name": "bjstdmngbdr08.thoughtworks.com",
                 "os": "windows",
                 "status": "building",
@@ -21,15 +19,14 @@ describe('AgentItem', () => {
                     "Chrome"
                 ],
                 "id": 1
-            }
-        ]
     }
+
     test('should render agent item', async () => {
-        renderWithProviders(<AgentList />, {
-            preloadedState: {
-                agents: initialAgent
-            }
-        })
+        render(
+            <Provider store={store}>
+                <AgentItem agent={initialAgent} />
+            </Provider>
+        )
 
         expect(screen.getByAltText('agent-os')).toBeInTheDocument();
         expect(screen.getByText('bjstdmngbdr08.thoughtworks.com')).toBeInTheDocument();
