@@ -4,45 +4,18 @@ import {AgentList} from "./AgentList";
 import store from "../../../../../app/store";
 import {renderWithProviders} from "../../../../../test/utils";
 import userEvent from "@testing-library/user-event";
+import {act} from "react-dom/test-utils";
 
 describe('AgentList', () => {
-    const initialAgents = {
-        "agents": [
-            {
-                "name": "bjstdmngbdr08.thoughtworks.com",
-                "os": "windows",
-                "status": "building",
-                "type": "virtual",
-                "ip": "192.168.1.80",
-                "location": "/var/lib/cruise-agent",
-                "resources": [
-                    "Firefox",
-                    "Safari"
-                ],
-                "id": 1
-            },
-            {
-                "name": "bjstdmngbdr10.thoughtworks.com",
-                "os": "ubuntu",
-                "status": "building",
-                "type": "physical",
-                "ip": "192.168.1.117",
-                "location": "/var/lib/cruise-agent",
-                "resources": [
-                    "Firefox",
-                    "Safari"
-                ],
-                "id": 2
-            }
-        ]
-    }
+    const promise = Promise.resolve()
 
-    test('should render agent list', () => {
+    test('should render agent list', async () => {
         render(
             <Provider store={store}>
                 <AgentList/>
             </Provider>)
 
+        await act(() => promise)
         expect(screen.getByText('All')).toBeInTheDocument();
         expect(screen.getByText('Physical')).toBeInTheDocument();
         expect(screen.getByText('Virtual')).toBeInTheDocument();
@@ -52,35 +25,26 @@ describe('AgentList', () => {
         expect(screen.getByRole('list')).toBeInTheDocument();
     });
 
-    test('should render all agents', () => {
-        renderWithProviders(<AgentList/>, {
-            preloadedState: {
-                agents: initialAgents
-            }
-        })
+    test('should render all agents', async () => {
+        renderWithProviders(<AgentList/>)
+
+        await act(() => promise)
+
+        expect(screen.getAllByRole('listitem')).toHaveLength(3)
+    });
+
+    test('should render physical agent when click physical button', async () => {
+        renderWithProviders(<AgentList/>)
+
+        await act(() => promise)
+        userEvent.click(screen.getByTestId('Physical'))
 
         expect(screen.getAllByRole('listitem')).toHaveLength(2)
     });
 
-    test('should render physical agent when click physical button', () => {
-        renderWithProviders(<AgentList/>, {
-            preloadedState: {
-                agents: initialAgents
-            }
-        })
-
-        userEvent.click(screen.getByTestId('Physical'))
-
-        expect(screen.getAllByRole('listitem')).toHaveLength(1)
-    });
-
-    test('should render virtual agent when click virtual button', () => {
-        renderWithProviders(<AgentList/>, {
-            preloadedState: {
-                agents: initialAgents
-            }
-        })
-
+    test('should render virtual agent when click virtual button', async () => {
+        renderWithProviders(<AgentList/>)
+        await act(() => promise)
         userEvent.click(screen.getByTestId('Virtual'))
 
         expect(screen.getAllByRole('listitem')).toHaveLength(1)

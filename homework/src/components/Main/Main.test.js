@@ -3,18 +3,21 @@ import Main from "./Main";
 import {Provider} from "react-redux";
 import store from "../../app/store";
 import userEvent from "@testing-library/user-event";
+import {act} from "react-dom/test-utils";
 
 describe('Main', () => {
-    test('should render navigation and content', () => {
+    test('should render navigation and content', async () => {
+        const promise = Promise.resolve()
         render(
             <Provider store={store}>
                 <Main/>
             </Provider>
         )
 
-        expect(screen.getByRole('main')).toBeInTheDocument();
-        expect(screen.getByRole('navigation')).toBeInTheDocument();
-        expect(screen.getByRole('content')).toBeInTheDocument();
+        await act(() => promise)
+        expect(await screen.findByRole('main')).toBeInTheDocument();
+        expect(await screen.findByRole('navigation')).toBeInTheDocument();
+        expect(await screen.findByRole('content')).toBeInTheDocument();
     });
 
     test('should render navigation and other content page when click DASHBOARD', () => {
