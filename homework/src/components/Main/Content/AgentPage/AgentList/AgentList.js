@@ -9,9 +9,12 @@ export const AgentList = () => {
     const agents = useSelector(selectAllAgents)
     const [filter, setFilter] = useState('All')
     const dispatch = useDispatch()
+    const agentStatus = useSelector(state => state.agents.fetchStatus)
 
     useEffect(() => {
+        if (agentStatus === 'idle') {
             dispatch(fetchAgents())
+        }
     }, [])
 
     const getVisibleAgents = () => {

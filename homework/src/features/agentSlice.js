@@ -3,6 +3,7 @@ import request from "../api/api";
 
 const initialState = {
     agents: [],
+    fetchStatus: 'idle',
 }
 
 export const fetchAgents = createAsyncThunk('agents/fetchAgents', async () => {
@@ -21,6 +22,7 @@ const agentsSlice = createSlice({
     extraReducers(builder) {
         builder
             .addCase(fetchAgents.fulfilled, (state, action) => {
+                state.fetchStatus = 'succeeded'
                 state.agents = state.agents.concat(action.payload)
             })
             .addCase(updateAgent.fulfilled, (state, action) => {
