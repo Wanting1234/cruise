@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const AGENT_URL = "http://localhost:3001/agents";
-const getAgents = () => {
+export const getAgents = () => {
     return axios.get(AGENT_URL).then(({data}) => data)
 }
 
-const updateAgent = agent => {
+export const updateAgent = agent => {
     return axios.put(`${AGENT_URL}/${agent.id}`, {
         ...agent
     }).then(res => res.data)
