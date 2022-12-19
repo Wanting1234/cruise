@@ -20,7 +20,7 @@ export const handlers = [
             })
         )
     }),
-    rest.put("http://localhost:3001/agents/2", (req, res, ctx) => {
+    rest.put("http://localhost:3001/agents/14", (req, res, ctx) => {
         return res(
             ctx.status(200),
             ctx.json({
@@ -34,11 +34,11 @@ export const handlers = [
                     "Chrome",
                     "Test01"
                 ],
-                "id": 2
+                "id": 14
             })
         )
     }),
-    rest.put("http://localhost:3001/agents/3", (req, res, ctx) => {
+    rest.put("http://localhost:3001/agents/15", (req, res, ctx) => {
         return res(
             ctx.status(200),
             ctx.json({
@@ -52,8 +52,52 @@ export const handlers = [
                     "Test02",
                     "Test03"
                 ],
-                "id": 3
+                "id": 15
             })
+        )
+    }),
+    rest.get("http://localhost:3001/agents", (req, res, ctx) => {
+        return res(
+            ctx.status(200),
+            ctx.json([
+                {
+                    "name": "bjstdmngbdr08.thoughtworks.com",
+                    "os": "windows",
+                    "status": "building",
+                    "type": "virtual",
+                    "ip": "192.168.1.80",
+                    "location": "/var/lib/cruise-agent",
+                    "resources": [
+                        "Firefox",
+                        "Safari",
+                        "Ubuntu",
+                        "Chrome"
+                    ],
+                    "id": 1
+                },
+                {
+                    "name": "bjstdmngbdr10.thoughtworks.com",
+                    "os": "ubuntu",
+                    "status": "building",
+                    "type": "physical",
+                    "ip": "192.168.1.117",
+                    "location": "/var/lib/cruise-agent",
+                    "resources": [
+                        "Chrome"
+                    ],
+                    "id": 2
+                },
+                {
+                    "name": "bjstdmngbdr10.thoughtworks.com",
+                    "os": "ubuntu",
+                    "status": "building",
+                    "type": "physical",
+                    "ip": "192.168.1.117",
+                    "location": "/var/lib/cruise-agent",
+                    "resources": [],
+                    "id": 3
+                }
+            ])
         )
     }),
 ]

@@ -1,27 +1,13 @@
-import {screen, waitFor} from '@testing-library/react';
+import { screen, waitFor} from '@testing-library/react';
 import App from './App';
 import {renderWithProviders} from "./test/utils";
 import userEvent from "@testing-library/user-event";
 import React from "react";
+import {act} from "react-dom/test-utils";
 
 describe('App', () => {
   const initialAgent = {
     agents: [
-      {
-        "name": "bjstdmngbdr08.thoughtworks.com",
-        "os": "windows",
-        "status": "building",
-        "type": "virtual",
-        "ip": "192.168.1.80",
-        "location": "/var/lib/cruise-agent",
-        "resources": [
-          "Firefox",
-          "Safari",
-          "Ubuntu",
-          "Chrome"
-        ],
-        "id": 1
-      },
       {
         "name": "bjstdmngbdr10.thoughtworks.com",
         "os": "ubuntu",
@@ -32,7 +18,7 @@ describe('App', () => {
         "resources": [
           "Chrome"
         ],
-        "id": 2
+        "id": 14
       },
       {
         "name": "bjstdmngbdr10.thoughtworks.com",
@@ -42,37 +28,28 @@ describe('App', () => {
         "ip": "192.168.1.117",
         "location": "/var/lib/cruise-agent",
         "resources": [],
-        "id": 3
+        "id": 15
       }
     ]
   }
 
-  test('should show popup box when click add btn', () => {
-    renderWithProviders(<App />, {
-      preloadedState: {
-        agents: initialAgent,
-        popup: false,
-        position: {x:0, y:0},
-        selectedAgent: 1,
-      }
-    })
+  test('should show popup box when click add btn', async () => {
+    renderWithProviders(<App />)
 
     expect(screen.queryByTestId('popup-box')).not.toBeInTheDocument();
 
-    userEvent.click(screen.getByTestId('1'))
+    await waitFor(() => {
+      userEvent.click(screen.getByTestId('1'))
+    })
 
-    expect(screen.getByTestId('popup-box')).toBeInTheDocument();
+    expect(await screen.findByTestId('popup-box')).toBeInTheDocument();
 
   });
 
   test('should delete a resource when click del-btn', async () => {
-    renderWithProviders(<App />, {
-      preloadedState: {
-        agents: initialAgent
-      }
-    })
+    renderWithProviders(<App /> )
 
-    expect(screen.getByTestId('Firefox')).toHaveClass('resource-button');
+    expect(await screen.findByTestId('Firefox')).toHaveClass('resource-button');
 
     userEvent.click(screen.getByTestId('del-Firefox'))
 
@@ -87,7 +64,7 @@ describe('App', () => {
         agents: initialAgent,
         popup: true,
         position: {x:0, y:0},
-        selectedAgent: 2,
+        selectedAgent: 14,
       }
     })
 
@@ -105,7 +82,7 @@ describe('App', () => {
         agents: initialAgent,
         popup: true,
         position: {x:0, y:0},
-        selectedAgent: 3,
+        selectedAgent: 15,
       }
     })
 
@@ -120,20 +97,24 @@ describe('App', () => {
     })
   });
 
-  test('should make popup box invisible when click cancel btn', () => {
+  test('should make popup box invisible when click cancel btn', async () => {
     renderWithProviders(<App />, {
       preloadedState: {
-        agents: initialAgent,
         popup: true,
-        position: {x:0, y:0},
+        position: {x: 0, y: 0},
         selectedAgent: 3,
       }
     })
+
     expect(screen.getByTestId('popup-box')).toBeInTheDocument();
 
-    userEvent.click(screen.getByText('Cancel'))
+    await act(() => {
+      userEvent.click(screen.getByText('Cancel'))
 
-    expect(screen.queryByTestId('popup-box')).not.toBeInTheDocument();
+    })
+
+    await waitFor(() => {
+      expect(screen.queryByTestId('popup-box')).not.toBeInTheDocument()
+    })
   });
-
 })
