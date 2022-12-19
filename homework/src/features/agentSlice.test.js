@@ -14,7 +14,7 @@ describe('agentSlice', () => {
 
         expect(result.type).toBe('agents/fetchAgents/fulfilled')
         const state = store.getState().agents
-        expect(state).toEqual({agents})
+        expect(state.agents).toEqual(agents)
     });
 
     test('should update agent when updateAgent is fulfilled', async () => {

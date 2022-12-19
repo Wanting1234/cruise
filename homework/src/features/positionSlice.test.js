@@ -7,6 +7,6 @@ describe('positionSlice', () => {
 
     test('should return new state', () => {
         const initialState = {x:0, y:0}
-        expect(setPosition(initialState, {x:3, y:5})).toEqual({x:3, y:5})
+        expect(reducer(initialState, setPosition({x:3, y:5}))).toEqual({x:3, y:5})
     });
 })
