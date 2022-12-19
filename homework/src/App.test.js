@@ -2,7 +2,6 @@ import { screen, waitFor} from '@testing-library/react';
 import App from './App';
 import {renderWithProviders} from "./test/utils";
 import userEvent from "@testing-library/user-event";
-import React from "react";
 import {act} from "react-dom/test-utils";
 
 describe('App', () => {
@@ -98,6 +97,7 @@ describe('App', () => {
   });
 
   test('should make popup box invisible when click cancel btn', async () => {
+    const promise = Promise.resolve()
     renderWithProviders(<App />, {
       preloadedState: {
         popup: true,
@@ -106,15 +106,11 @@ describe('App', () => {
       }
     })
 
+    await act(() => promise)
     expect(screen.getByTestId('popup-box')).toBeInTheDocument();
 
-    await act(() => {
-      userEvent.click(screen.getByText('Cancel'))
+    userEvent.click(screen.getByText('Cancel'))
 
-    })
-
-    await waitFor(() => {
-      expect(screen.queryByTestId('popup-box')).not.toBeInTheDocument()
-    })
+    expect(screen.queryByTestId('popup-box')).not.toBeInTheDocument()
   });
 })
