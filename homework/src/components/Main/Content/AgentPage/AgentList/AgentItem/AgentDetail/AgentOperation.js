@@ -21,10 +21,10 @@ export const AgentOperation = ({agent}) => {
 
     const handleAdd = (id, e) => {
         dispatch(selectCurrentAgentId(id))
-        dispatch(setPopupBoxState(true))
 
         const {x, y} = getPosition(e);
         dispatch(setPosition({x, y}))
+        dispatch(setPopupBoxState(true))
     };
 
     return(
