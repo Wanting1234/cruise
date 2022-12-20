@@ -12,3 +12,9 @@
     background-color: #ffffff;
     box-shadow: 1px -4px 10px rgba(0, 0, 0, 0.1);
 }
+
+@media screen and (max-width: 1023px) {
+    .footer {
+        display: none;
+    }
+}

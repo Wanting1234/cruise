@@ -8,9 +8,8 @@
       "ip": "192.168.1.80",
       "location": "/var/lib/cruise-agent",
       "resources": [
-        "Firefox",
         "Safari",
-        "test"
+        "Ubuntu"
       ],
       "id": 1
     },

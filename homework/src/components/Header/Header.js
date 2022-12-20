@@ -11,9 +11,11 @@ const Header = () => {
 
     return (
         <header className="header">
+            <span className="icon-navicon"></span>
             <img src={logo} alt="cruise" className="logo"/>
             <div className="dropdown">
                 <img src={avatar} alt="user-avatar" className="user-avatar"/>
+                <span className="icon-angle-down"></span>
                 <div className="dropdown-content">
                     <ul>
                         {menu.map((item) => <li key={item.label}>

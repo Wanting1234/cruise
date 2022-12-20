@@ -54,3 +54,9 @@
     color: #00B4CF;
     background-color: #435466;
 }
+
+@media screen and (max-width: 1023px) {
+    .navigation {
+        display: none;
+    }
+}

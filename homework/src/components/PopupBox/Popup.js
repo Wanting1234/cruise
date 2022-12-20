@@ -41,7 +41,7 @@ export const Popup = () => {
     return (
         <>
             <section className="popup-box" data-testid="popup-box" onClick={handleCancel}></section>
-            <div className="add-input-content" style={{left, top}}>
+            <div className="add-input-content" id="add-input-content-res" style={{left, top}}>
                 <span className="iconfont icon-close" onClick={handleCancel}></span>
                 <form id="form">
                     <label>

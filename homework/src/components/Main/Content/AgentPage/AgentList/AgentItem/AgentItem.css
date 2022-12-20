@@ -115,3 +115,61 @@
 .deny-button:hover {
     background-color: #01869A;
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+    .info-label {
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .agent-os {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .yellow-item {
+        border-left: solid 3px #FF9A2A;
+    }
+
+    .green-item {
+        border-left: solid 3px #7FBC39;
+    }
+
+    .info-label {
+        display: none;
+    }
+
+    .agent-info {
+        flex-direction: column;
+    }
+
+    .name-with-icon, .ip-with-icon, .location-with-icon {
+        padding: 5px 0;
+    }
+
+    .agent-operation {
+        flex-direction: column;
+    }
+
+    .agent-deny {
+        align-self: flex-end;
+    }
+
+    .operation-group {
+        flex-direction: row;
+        align-items: flex-start
+    }
+
+    .agent-resources {
+        display: flex;
+        flex-wrap: wrap;
+        width: 80%;
+    }
+
+    .resource-button {
+        margin: 0 2px 5px 0;
+        flex: 0 0 33%;
+    }
+}

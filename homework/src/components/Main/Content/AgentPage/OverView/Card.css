@@ -16,13 +16,13 @@
 }
 
 .card {
-    position: relative;
-    width: 270px;
-    height: 124px;
-    padding: 12px;
-    box-sizing: border-box;
-    color: #ffffff;
-}
+        position: relative;
+        width: 270px;
+        height: 124px;
+        padding: 12px;
+        box-sizing: border-box;
+        color: #ffffff;
+    }
 
 h1 {
     font-size: 18px;
@@ -92,4 +92,53 @@ p {
     margin-top: 30px;
     font-size: 20px;
     color: #000000;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .card {
+        width: 235px;
+    }
+    .card-overview {
+        flex-direction: column;
+        width: 235px;
+    }
+
+    .overview-item {
+        flex-direction: row;
+        margin-left: 15px;
+    }
+
+    .overview-item span:last-child {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .overview {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .card {
+        width: calc((100% - 20px)/2);
+    }
+
+    .yellow {
+        margin-right: 10px;
+    }
+
+    .green {
+        margin-left: 10px;
+    }
+
+    .card-overview {
+        width: 100%;
+        margin-top: 20px;
+        padding: 20px 60px;
+        height: 100px;
+    }
+
+    .overview-item span:last-child {
+        margin: 0;
+    }
 }

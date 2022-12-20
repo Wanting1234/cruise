@@ -34,13 +34,17 @@ export const AgentOperation = ({agent}) => {
                         onClick={(event) => handleAdd(agent.id, event)}>
                     <span className={"iconfont icon-plus"} id={`plus-${agent.id}`}></span>
                 </button>
-                {agent.resources && <AgentResource agent={agent}/>}
+                <section className="agent-resources">
+                    {agent.resources && <AgentResource agent={agent}/>}
+                </section>
             </div>
+            <div className="agent-deny">
             {agent.status === 'building' ?
                 <button className="deny-button">
                     <span className="iconfont icon-deny"></span>
                     <span>Deny</span>
                 </button> : null}
+            </div>
         </div>
     )
 }

@@ -83,3 +83,65 @@ label {
     color: #01869A;
     cursor: pointer;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .popup-box {
+        background-color: #435466;
+        opacity: 80%;
+    }
+    .add-input-content {
+        display: none;
+    }
+
+    #add-input-content-res {
+        display: block;
+        top: 290px !important;
+        left: 180px !important;
+    }
+
+    #add-input-content-res:before {
+        display: none;
+    }
+
+    #add-input-content-res:after {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .popup-box {
+        background-color: #435466;
+        opacity: 80%;
+    }
+
+    .add-input-content {
+        display: none;
+    }
+
+    #add-input-content-res {
+        display: block;
+        position: sticky;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100%;
+        border: none;
+    }
+
+    #add-input-content-res:before {
+        display: none;
+    }
+
+    #add-input-content-res:after {
+        display: none;
+    }
+
+    .add-resources {
+        margin: 10px;
+        width: 95%;
+    }
+
+    .cancel {
+        margin: 10px;
+        width: 95%;
+    }
+}

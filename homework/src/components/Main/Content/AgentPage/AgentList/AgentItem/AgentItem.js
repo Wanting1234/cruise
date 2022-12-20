@@ -12,7 +12,7 @@ export const AgentItem = ({agent}) => {
     const menu = {windows, ubuntu, debian, suse, centos}
 
     return (
-        <div key={agent.id} className="agent-item">
+        <div key={agent.id} className={`agent-item ${agent.status === "building" ? "yellow-item" : "green-item"}`}>
             <div className="agent-os">
                 <span>
                     <img src={menu[agent.os]} alt="agent-os" className="agent-os"/>

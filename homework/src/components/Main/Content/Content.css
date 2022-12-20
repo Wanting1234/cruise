@@ -31,3 +31,19 @@
     list-style: none;
 }
 
+@media screen and (max-width: 1023px) {
+    .icon-type {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .content {
+        width: 100%;
+    }
+
+    .agent-navbar {
+        flex-direction: column-reverse;
+        background-color: #EFEFEF;
+    }
+}
