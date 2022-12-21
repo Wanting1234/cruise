@@ -4,12 +4,14 @@ import Content from "./Content/Content";
 import './Main.css'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {OtherPage} from "./Content/OtherPage/OtherPage";
+import {useSelector} from "react-redux";
 
 const Main = () => {
+    const navigationState = useSelector((state) => state.navigation)
     return(
         <BrowserRouter>
         <main className="main">
-            <Navigation />
+            {navigationState && <Navigation />}
             <Routes>
             <Route path="/" element={<Content />}/>
             <Route path="/agent" element={<Content match={'agent'} />}/>

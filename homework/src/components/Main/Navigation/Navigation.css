@@ -15,6 +15,14 @@
     font-size: 14px;
 }
 
+.icon-close {
+    display: none;
+    color: #00B4CF;
+    font-size: 20px;
+    margin-left: calc(100% - 30px);
+    margin-top: 10px;
+}
+
 .navigation-message ul {
     line-height: 45px;
     list-style: none;
@@ -57,6 +65,13 @@
 
 @media screen and (max-width: 1023px) {
     .navigation {
-        display: none;
+        z-index: 2;
+        position: absolute;
+        left: 0;
+        /*display: none;*/
+    }
+
+    .icon-close {
+        display: block;
     }
 }
