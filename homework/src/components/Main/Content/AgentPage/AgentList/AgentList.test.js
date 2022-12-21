@@ -1,7 +1,5 @@
-import {render, screen} from "@testing-library/react";
-import {Provider} from "react-redux";
+import {screen, waitFor} from "@testing-library/react";
 import {AgentList} from "./AgentList";
-import store from "../../../../../app/store";
 import {renderWithProviders} from "../../../../../test/utils";
 import userEvent from "@testing-library/user-event";
 import {act} from "react-dom/test-utils";
@@ -10,10 +8,7 @@ describe('AgentList', () => {
     const promise = Promise.resolve()
 
     test('should render agent list', async () => {
-        render(
-            <Provider store={store}>
-                <AgentList/>
-            </Provider>)
+        renderWithProviders(<AgentList/>)
 
         await act(() => promise)
         expect(screen.getByText('All')).toBeInTheDocument();
@@ -48,5 +43,17 @@ describe('AgentList', () => {
         userEvent.click(screen.getByTestId('Virtual'))
 
         expect(screen.getAllByRole('listitem')).toHaveLength(1)
+    });
+
+    test('should delete a resource when click del-btn', async () => {
+        renderWithProviders(<AgentList /> )
+
+        expect(await screen.findByTestId('Firefox')).toHaveClass('resource-button');
+
+        userEvent.click(screen.getByTestId('del-Firefox'))
+
+        await waitFor(() => {
+            expect(screen.queryByTestId('Firefox')).not.toBeInTheDocument()
+        })
     });
 })

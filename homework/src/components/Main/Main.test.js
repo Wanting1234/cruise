@@ -1,18 +1,14 @@
-import {render, screen} from "@testing-library/react";
+import {screen} from "@testing-library/react";
 import Main from "./Main";
-import {Provider} from "react-redux";
-import store from "../../app/store";
 import userEvent from "@testing-library/user-event";
 import {act} from "react-dom/test-utils";
+import {renderWithProviders} from "../../test/utils";
 
 describe('Main', () => {
     test('should render navigation and content', async () => {
         const promise = Promise.resolve()
-        render(
-            <Provider store={store}>
-                <Main/>
-            </Provider>
-        )
+
+        renderWithProviders(<Main/>)
 
         await act(() => promise)
         expect(await screen.findByRole('main')).toBeInTheDocument();
@@ -21,11 +17,7 @@ describe('Main', () => {
     });
 
     test('should render navigation and other content page when click DASHBOARD', () => {
-        render(
-            <Provider store={store}>
-                <Main/>
-            </Provider>
-        )
+        renderWithProviders(<Main/>)
 
         userEvent.click(screen.queryByText('DASHBOARD'));
 

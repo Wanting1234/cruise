@@ -1,8 +1,7 @@
-import {render, screen} from "@testing-library/react";
+import {screen} from "@testing-library/react";
 import {AgentItem} from "./AgentItem";
 import React from "react";
-import {Provider} from "react-redux";
-import store from "../../../../../../app/store";
+import {renderWithProviders} from "../../../../../../test/utils";
 
 describe('AgentItem', () => {
     const initialAgent = {
@@ -22,11 +21,7 @@ describe('AgentItem', () => {
     }
 
     test('should render agent item', async () => {
-        render(
-            <Provider store={store}>
-                <AgentItem agent={initialAgent} />
-            </Provider>
-        )
+        renderWithProviders(<AgentItem agent={initialAgent} />)
 
         expect(screen.getByAltText('agent-os')).toBeInTheDocument();
         expect(screen.getByText('bjstdmngbdr08.thoughtworks.com')).toBeInTheDocument();

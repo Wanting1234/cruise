@@ -7,6 +7,7 @@ import agentReducer from '../features/agentSlice'
 import popupReducer from '../features/popupSlice'
 import positionReducer from "../features/positionSlice";
 import selectedAgentIdReducer from "../features/selectedAgentIdSlice";
+import navigationReducer from "../features/navigationSlice";
 
 export function renderWithProviders(
     ui,
@@ -17,7 +18,8 @@ export function renderWithProviders(
                 agents: agentReducer,
                 popup: popupReducer,
                 position: positionReducer,
-                selectedAgent: selectedAgentIdReducer
+                selectedAgent: selectedAgentIdReducer,
+                navigation: navigationReducer,
             }, preloadedState
         }),
         ...renderOptions

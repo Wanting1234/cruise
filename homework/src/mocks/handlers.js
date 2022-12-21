@@ -20,7 +20,7 @@ export const handlers = [
             })
         )
     }),
-    rest.put("http://localhost:3001/agents/14", (req, res, ctx) => {
+    rest.put("http://localhost:3001/agents/2", (req, res, ctx) => {
         return res(
             ctx.status(200),
             ctx.json({
@@ -34,11 +34,11 @@ export const handlers = [
                     "Chrome",
                     "Test01"
                 ],
-                "id": 14
+                "id": 2
             })
         )
     }),
-    rest.put("http://localhost:3001/agents/15", (req, res, ctx) => {
+    rest.put("http://localhost:3001/agents/3", (req, res, ctx) => {
         return res(
             ctx.status(200),
             ctx.json({
@@ -52,7 +52,7 @@ export const handlers = [
                     "Test02",
                     "Test03"
                 ],
-                "id": 15
+                "id": 3
             })
         )
     }),

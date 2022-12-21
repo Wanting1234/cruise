@@ -1,18 +1,15 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import {render, screen} from '@testing-library/react';
+import {screen} from '@testing-library/react';
 import {MemoryRouter} from 'react-router-dom';
 import Navigation from "./Navigation";
-import {Provider} from "react-redux";
-import store from "../../../app/store";
+import {renderWithProviders} from "../../../test/utils";
 
 describe('Navigation', () => {
     test('should list all menu', () => {
-        render(
+        renderWithProviders(
             <MemoryRouter>
-                <Provider store={store}>
-                    <Navigation/>
-                </Provider>
+                <Navigation/>
             </MemoryRouter>)
 
         expect(screen.getByText('DASHBOARD')).toBeInTheDocument();

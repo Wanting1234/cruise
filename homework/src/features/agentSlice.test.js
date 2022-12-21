@@ -32,11 +32,13 @@ describe('agentSlice', () => {
             "status": "building",
             "type": "virtual"}
 
+        await store.dispatch(fetchAgents())
         const result = await store.dispatch(updateAgent(updatedAgent))
         const agent = result.payload
 
         expect(result.type).toBe('agents/updateAgent/fulfilled')
-        expect(agent).toEqual(updatedAgent)
+        const state = store.getState().agents
+        expect(state.agents[0]).toEqual(agent)
     });
 
 })
