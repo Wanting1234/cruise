@@ -24,7 +24,8 @@
     flex-direction: column;
     margin: 0 10px;
     overflow: auto;
-    height: 710px;
+    height: 100vh;
+    max-height: 700px;
 }
 
 .list li {
@@ -34,6 +35,10 @@
 @media screen and (max-width: 1023px) {
     .icon-type {
         display: none;
+    }
+
+    .list {
+        max-height: 100vh;
     }
 }
 
