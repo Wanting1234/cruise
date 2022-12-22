@@ -2,10 +2,13 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const navigationSlice = createSlice({
     name: 'navigation',
-    initialState: true,
+    // initialState: true,
+    initialState: {
+       navigationState: true,
+    },
     reducers: {
         setNavigationState: (state, action) => {
-            state = action.payload
+            state.navigationState = action.payload
             return state
         }
     },

@@ -7,7 +7,7 @@ import {OtherPage} from "./Content/OtherPage/OtherPage";
 import {useSelector} from "react-redux";
 
 const Main = () => {
-    const navigationState = useSelector((state) => state.navigation)
+    const navigationState = useSelector((state) => state.navigation.navigationState)
     return(
         <BrowserRouter>
         <main className="main">
