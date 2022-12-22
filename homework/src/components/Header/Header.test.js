@@ -17,7 +17,7 @@ describe('Header', () => {
     it('should show user info correctly', () => {
         renderWithProviders(<Header/>)
 
-        userEvent.hover(screen.getByAltText('user-avatar'))
+        userEvent.hover(screen.getByAltText('avatars'))
         expect(screen.getByText('Profile')).toBeInTheDocument();
         expect(screen.getByText('Sign Out')).toBeInTheDocument();
     });

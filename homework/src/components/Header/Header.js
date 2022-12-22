@@ -12,7 +12,6 @@ const Header = () => {
     ]
     const dispatch = useDispatch();
 
-    // todo: mysterious name(user-avatars)
     return (
         <header className="header">
             <span className="icon-navicon" onClick={() => {dispatch(setNavigationState(true))}}></span>
