@@ -12,18 +12,13 @@ const Header = () => {
     ]
     const dispatch = useDispatch();
 
-    // todo: mysterious name
-    function handleShowNav() {
-        dispatch(setNavigationState(true))
-    }
-
     // todo: mysterious name(user-avatars)
     return (
         <header className="header">
-            <span className="icon-navicon" onClick={handleShowNav}></span>
+            <span className="icon-navicon" onClick={() => {dispatch(setNavigationState(true))}}></span>
             <img src={logo} alt="cruise" className="logo"/>
             <div className="dropdown">
-                <img src={avatar} alt="user-avatar" className="user-avatar"/>
+                <img src={avatar} alt="avatars" className="avatars"/>
                 <span className="icon-angle-down"></span>
                 <div className="dropdown-content">
                     <ul>

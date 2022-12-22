@@ -11,7 +11,7 @@ describe('Header', () => {
         renderWithProviders(<Header/>)
 
         expect(screen.getByAltText('cruise')).toBeInTheDocument();
-        expect(screen.getByAltText('user-avatar')).toBeInTheDocument();
+        expect(screen.getByAltText('avatars')).toBeInTheDocument();
     });
 
     it('should show user info correctly', () => {

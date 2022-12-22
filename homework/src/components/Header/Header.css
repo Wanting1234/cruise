@@ -19,7 +19,7 @@
     height: 40px;
 }
 
-.header .user-avatar {
+.header .avatars {
     border-radius: 50%;
     cursor: pointer;
 }
