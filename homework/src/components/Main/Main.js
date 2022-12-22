@@ -8,6 +8,7 @@ import {useSelector} from "react-redux";
 
 const Main = () => {
     const navigationState = useSelector((state) => state.navigation.navigationState)
+    // todo: mysterious name(otherPage and agentPage)
     return(
         <BrowserRouter>
         <main className="main">

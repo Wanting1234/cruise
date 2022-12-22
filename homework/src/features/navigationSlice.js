@@ -2,7 +2,6 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const navigationSlice = createSlice({
     name: 'navigation',
-    // initialState: true,
     initialState: {
        navigationState: true,
     },

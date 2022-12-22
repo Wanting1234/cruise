@@ -6,6 +6,7 @@ import {useDispatch} from "react-redux";
 import {setNavigationState} from "../../../features/navigationSlice";
 
 const Navigation = () => {
+    // todo: extract variables and save them in a file
     const menu = [
         {id: '1', icon: 'icon-dashboard', name: 'DASHBOARD'},
         {id: '2', icon: 'icon-sitemap', name: 'AGENT'},

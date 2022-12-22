@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// todo: extract variables and save them in a file
 const AGENT_URL = "http://localhost:3001/agents";
 export const getAgents = () => {
     return axios.get(AGENT_URL).then(({data}) => data)

@@ -29,6 +29,10 @@ export const AgentList = () => {
     const visibleAgents = getVisibleAgents();
 
     return (
+        // todo: mysterious name(use testId rather than role)
+        // todo: mysterious name('list' could be changed to 'agent-list-section')
+        // todo: only transfer agentId to AgentItem component and add a method to get agent by its id
+
         <section className="agent-list" role="region" aria-label="agent-list">
         <Menu filter={filter} setFilter={setFilter}/>
         <div className="list">

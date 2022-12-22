@@ -6,6 +6,7 @@ import {selectAllAgents} from "../../../../../features/agentsSlice";
 
 export const OverView = () => {
     const agents = useSelector(selectAllAgents)
+    // todo: duplicated code(extract function)
     const buildingNum = agents.filter((agent) => agent.status === 'building').length;
     const idleNum = agents.filter((agent) => agent.status === 'idle').length;
     const physicalNum = agents.filter((agent) => agent.type === 'physical').length;
@@ -18,3 +19,5 @@ export const OverView = () => {
             <Statistics physicalNum={physicalNum} virtualNum={virtualNum}/>
         </div>);
 }
+
+

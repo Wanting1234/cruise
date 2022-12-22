@@ -3,6 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 const popupSlice = createSlice({
     name: 'popup',
     initialState: {
+        // todo: mysterious name(popupBoxState and popupBoxPosition)
         popupBoxState: false,
         position: {x:0, y:0}
     },

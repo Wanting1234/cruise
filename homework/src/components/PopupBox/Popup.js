@@ -5,6 +5,8 @@ import {setPopupBoxState} from "../../features/popupSlice";
 import {selectAllAgents, updateAgent} from "../../features/agentsSlice";
 
 export const Popup = () => {
+    // todo: add a method to get agent by its id and find agent by agentId
+
     const [inputText, setInputText] = useState('');
     const agentId = useSelector((state) => state.agents.selectedAgent)
     const agents = useSelector(selectAllAgents)

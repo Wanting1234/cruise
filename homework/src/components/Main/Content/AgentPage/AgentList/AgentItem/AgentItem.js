@@ -10,6 +10,7 @@ import {AgentOperation} from "./AgentDetail/AgentOperation";
 
 export const AgentItem = ({agent}) => {
     const menu = {windows, ubuntu, debian, suse, centos}
+    // todo: only transfer agentId
 
     return (
         <div key={agent.id} className={`agent-item ${agent.status === "building" ? "yellow-item" : "green-item"}`}>

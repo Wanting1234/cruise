@@ -12,10 +12,12 @@ const Header = () => {
     ]
     const dispatch = useDispatch();
 
+    // todo: mysterious name
     function handleShowNav() {
         dispatch(setNavigationState(true))
     }
 
+    // todo: mysterious name(user-avatars)
     return (
         <header className="header">
             <span className="icon-navicon" onClick={handleShowNav}></span>

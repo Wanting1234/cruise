@@ -2,6 +2,8 @@ import React from "react";
 import './History.css'
 
 const History = () => {
+    // todo: extract variables and save them in a file
+
     const history = [
         'bjstdmngbdr02/Acceptance_test',
         'bjstdmngbdr03/Acceptance_test',

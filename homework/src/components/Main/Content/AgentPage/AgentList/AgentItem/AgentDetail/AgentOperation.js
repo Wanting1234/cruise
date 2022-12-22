@@ -8,11 +8,13 @@ import {AgentResource} from "./AgentResource";
 export const AgentOperation = ({agent}) => {
     const dispatch = useDispatch();
 
+    // todo: mysterious name(getPopupBoxPosition)
     const getPosition = event => {
         let selectedElm = event.target
         if (selectedElm === document.querySelector(`#plus-${agent.id}`)) {
             selectedElm = selectedElm.parentNode
         }
+        // todo: mysterious name(change name of box)
         const box = selectedElm.getBoundingClientRect()
         const x = box.left - box.width / 2
         const y = box.top + box.height * 1.5
@@ -23,9 +25,13 @@ export const AgentOperation = ({agent}) => {
         dispatch(selectCurrentAgentId(id))
 
         const {x, y} = getPosition(e);
+        // todo: mysterious name(setPopupBoxPosition)
         dispatch(setPosition({x, y}))
         dispatch(setPopupBoxState(true))
     };
+
+    // todo: mysterious name(change testId with id)
+    // todo: only transfer agentId and resources to AgentResource
 
     return(
         <div className="agent-operation">
