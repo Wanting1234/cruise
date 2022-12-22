@@ -1,8 +1,8 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {selectCurrentAgentId} from "../../../../../../../features/agentsSlice";
-import {setPopupBoxState} from "../../../../../../../features/popupSlice";
-import {setPosition} from "../../../../../../../features/popupSlice";
+import {selectCurrentAgentId} from "../../../../../../features/agentsSlice";
+import {setPopupBoxState} from "../../../../../../features/popupSlice";
+import {setPosition} from "../../../../../../features/popupSlice";
 import {AgentResource} from "./AgentResource";
 
 export const AgentOperation = ({agent}) => {

@@ -1,8 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import './OtherPage.css';
+import './OtherView.css';
 
-export const OtherPage = ({match}) => {
+export const OtherView = ({match}) => {
         return(
             <section className="content-page" role="content-page">
                 <h1>{match} Loading...</h1>

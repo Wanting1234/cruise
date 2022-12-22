@@ -1,7 +1,7 @@
 import {screen} from "@testing-library/react";
 import {AgentItem} from "./AgentItem";
 import React from "react";
-import {renderWithProviders} from "../../../../../../test/utils";
+import {renderWithProviders} from "../../../../../test/utils";
 
 describe('AgentItem', () => {
     const initialAgent = {

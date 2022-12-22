@@ -1,24 +1,23 @@
 import React from "react";
 import Navigation from "./Navigation/Navigation";
-import Content from "./Content/Content";
+import AgentView from "./AgentView/AgentView";
 import './Main.css'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {OtherPage} from "./Content/OtherPage/OtherPage";
+import {OtherView} from "./OtherView/OtherView";
 import {useSelector} from "react-redux";
 
 const Main = () => {
     const navigationState = useSelector((state) => state.navigation.navigationState)
-    // todo: mysterious name(otherPage and agentPage)
     return(
         <BrowserRouter>
         <main className="main">
             {navigationState && <Navigation />}
             <Routes>
-            <Route path="/" element={<Content />}/>
-            <Route path="/agent" element={<Content match={'agent'} />}/>
-            <Route path="/dashboard" element={<OtherPage match={'dashboard'}/>} />
-            <Route path="/my cruise" element={<OtherPage match={'my cruise'} />}/>
-            <Route path="/help" element={<OtherPage match={'help'} />}/>
+            <Route path="/" element={<AgentView />}/>
+            <Route path="/agent" element={<AgentView match={'agent'} />}/>
+            <Route path="/dashboard" element={<OtherView match={'dashboard'}/>} />
+            <Route path="/my cruise" element={<OtherView match={'my cruise'} />}/>
+            <Route path="/help" element={<OtherView match={'help'} />}/>
             </Routes>
         </main>
         </BrowserRouter>

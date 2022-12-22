@@ -52,7 +52,7 @@ The response of this request would be the json of the agent which match the id.
 PUT http://localhost:3001/agents/{id}
 {
     "headers": {
-        "Content-Type": "application/json"
+        "AgentView-Type": "application/json"
     },
     "body": {MODIFIED AGENT}
 }

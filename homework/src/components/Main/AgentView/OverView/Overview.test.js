@@ -1,8 +1,8 @@
 import {render, screen} from "@testing-library/react";
 import {OverView} from "./OverView";
-import store from "../../../../../app/store";
+import store from "../../../../app/store";
 import {Provider} from "react-redux";
-import {renderWithProviders} from "../../../../../test/utils";
+import {renderWithProviders} from "../../../../test/utils";
 
 describe('Overview', () => {
     test('should render overview', () => {

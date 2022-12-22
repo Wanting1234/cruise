@@ -1,13 +1,13 @@
 import { screen } from "@testing-library/react";
-import Content from "./Content";
+import AgentView from "./AgentView";
 import {act} from "react-dom/test-utils";
 import {renderWithProviders} from "../../../test/utils";
 
-describe('Content', () => {
+describe('AgentView', () => {
     test('should render overview and agent list', async () => {
         const promise = Promise.resolve()
         renderWithProviders(
-                <Content />
+                <AgentView />
             )
         await act(() => promise)
         expect(screen.getByRole('overview')).toHaveClass('overview');
