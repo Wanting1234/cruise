@@ -68,10 +68,15 @@
         z-index: 2;
         position: absolute;
         left: 0;
-        /*display: none;*/
     }
 
     .icon-close {
         display: block;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .navigation {
+        display: none;
     }
 }

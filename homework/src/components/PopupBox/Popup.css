@@ -120,11 +120,12 @@ label {
 
     #add-input-content-res {
         display: block;
-        position: sticky;
+        position: fixed;
         bottom: 0 !important;
         left: 0 !important;
         width: 100%;
         border: none;
+        max-height: 250px;
     }
 
     #add-input-content-res:before {
