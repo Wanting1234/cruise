@@ -1,4 +1,4 @@
-import reducer, {fetchAgents, updateAgent} from "./agentSlice";
+import reducer, {fetchAgents, updateAgent, selectCurrentAgentId} from "./agentSlice";
 import agentSlice from "./agentSlice";
 import store from "../app/store";
 
@@ -39,6 +39,17 @@ describe('agentSlice', () => {
         expect(result.type).toBe('agents/updateAgent/fulfilled')
         const state = store.getState().agents
         expect(state.agents[0]).toEqual(agent)
+    });
+
+    test('should return initial state', () => {
+        expect(reducer(undefined, {payload: undefined}).selectedAgent).toEqual(-1)
+    });
+
+    test('should return selected agent id', () => {
+        const initialState = {
+            selectedAgent: -1,
+        }
+        expect(reducer(initialState, selectCurrentAgentId(3)).selectedAgent).toEqual(3)
     });
 
 })
