@@ -8,7 +8,7 @@ export const Popup = () => {
     const [inputText, setInputText] = useState('');
     const agentId = useSelector((state) => state.selectedAgent)
     const agents = useSelector(selectAllAgents)
-    const position = useSelector((state) => state.position)
+    const position = useSelector((state) => state.popup.position)
     const left = position.x
     const top = position.y
     const dispatch = useDispatch();

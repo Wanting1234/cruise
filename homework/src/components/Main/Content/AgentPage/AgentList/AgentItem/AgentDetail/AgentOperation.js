@@ -2,7 +2,7 @@ import React from "react";
 import {useDispatch} from "react-redux";
 import {selectCurrentAgentId} from "../../../../../../../features/selectedAgentIdSlice";
 import {setPopupBoxState} from "../../../../../../../features/popupSlice";
-import {setPosition} from "../../../../../../../features/positionSlice";
+import {setPosition} from "../../../../../../../features/popupSlice";
 import {AgentResource} from "./AgentResource";
 
 export const AgentOperation = ({agent}) => {
