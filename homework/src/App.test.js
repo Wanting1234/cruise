@@ -46,8 +46,10 @@ describe('App', () => {
     const promise = Promise.resolve()
     renderWithProviders(<App />, {
       preloadedState: {
-        popup: true,
-        position: {x: 0, y: 0},
+        popup: {
+          popupBoxState: true,
+          position: {x: 0, y: 0}
+        },
         selectedAgent: 3,
       }
     })

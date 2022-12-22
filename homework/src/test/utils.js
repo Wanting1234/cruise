@@ -5,7 +5,7 @@ import {Provider} from 'react-redux'
 
 import agentReducer from '../features/agentSlice'
 import popupReducer from '../features/popupSlice'
-import positionReducer from "../features/positionSlice";
+// import positionReducer from "../features/positionSlice";
 import selectedAgentIdReducer from "../features/selectedAgentIdSlice";
 import navigationReducer from "../features/navigationSlice";
 
@@ -17,7 +17,7 @@ export function renderWithProviders(
             reducer: {
                 agents: agentReducer,
                 popup: popupReducer,
-                position: positionReducer,
+                // position: positionReducer,
                 selectedAgent: selectedAgentIdReducer,
                 navigation: navigationReducer,
             }, preloadedState
