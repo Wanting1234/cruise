@@ -4,6 +4,7 @@ import request from "../api/api";
 const initialState = {
     agents: [],
     fetchStatus: 'idle',
+    selectedAgent: -1,
 }
 
 export const fetchAgents = createAsyncThunk('agents/fetchAgents', async () => {
@@ -18,7 +19,12 @@ export const updateAgent = createAsyncThunk('agents/updateAgent', async agent =>
 const agentsSlice = createSlice({
     name: 'agents',
     initialState,
-    reducers: {},
+    reducers: {
+        selectCurrentAgentId: (state, action) => {
+            state.selectedAgent = action.payload
+            return state;
+        }
+    },
     extraReducers(builder) {
         builder
             .addCase(fetchAgents.fulfilled, (state, action) => {
@@ -34,5 +40,5 @@ const agentsSlice = createSlice({
 })
 
 export default agentsSlice.reducer
-
+export const {selectCurrentAgentId} = agentsSlice.actions
 export const selectAllAgents = (state) => state.agents.agents

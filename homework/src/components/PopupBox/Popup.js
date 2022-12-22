@@ -6,7 +6,7 @@ import {selectAllAgents, updateAgent} from "../../features/agentSlice";
 
 export const Popup = () => {
     const [inputText, setInputText] = useState('');
-    const agentId = useSelector((state) => state.selectedAgent)
+    const agentId = useSelector((state) => state.agents.selectedAgent)
     const agents = useSelector(selectAllAgents)
     const position = useSelector((state) => state.popup.position)
     const left = position.x
