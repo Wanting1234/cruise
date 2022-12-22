@@ -1,7 +1,8 @@
 import React from "react";
 
 export function AgentInfo(props) {
-    // todo: duplicated code(?)
+    // todo: duplicated code(extract component)
+    // todo: mysterious name
     return <div className="agent-info">
         <div className="name-with-icon">
             <span className="iconfont icon-desktop"></span>

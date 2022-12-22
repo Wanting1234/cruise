@@ -32,6 +32,7 @@ export const AgentOperation = ({agent}) => {
 
     // todo: mysterious name(change testId with id)
     // todo: only transfer agentId and resources to AgentResource
+    // todo: rewrite AgentResource
 
     return(
         <div className="agent-operation">
