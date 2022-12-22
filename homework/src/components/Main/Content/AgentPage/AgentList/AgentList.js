@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {AgentItem} from "./AgentItem/AgentItem";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchAgents, selectAllAgents} from "../../../../../features/agentSlice";
+import {fetchAgents, selectAllAgents} from "../../../../../features/agentsSlice";
 import {Menu} from "./Menu/Menu";
 
 

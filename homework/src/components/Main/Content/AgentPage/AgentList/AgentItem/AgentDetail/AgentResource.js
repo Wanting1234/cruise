@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {updateAgent} from "../../../../../../../features/agentSlice";
+import {updateAgent} from "../../../../../../../features/agentsSlice";
 
 export const AgentResource = ({agent}) => {
     const dispatch = useDispatch();

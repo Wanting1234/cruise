@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import agentSlice from "../features/agentSlice";
+import agentsSlice from "../features/agentsSlice";
 import popupSlice from "../features/popupSlice";
 import navigationSlice from "../features/navigationSlice";
 
 export default configureStore({
     reducer: {
-        agents: agentSlice,
+        agents: agentsSlice,
         popup: popupSlice,
         navigation: navigationSlice,
     },

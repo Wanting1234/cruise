@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import './Popup.css'
 import {useDispatch, useSelector} from "react-redux";
 import {setPopupBoxState} from "../../features/popupSlice";
-import {selectAllAgents, updateAgent} from "../../features/agentSlice";
+import {selectAllAgents, updateAgent} from "../../features/agentsSlice";
 
 export const Popup = () => {
     const [inputText, setInputText] = useState('');

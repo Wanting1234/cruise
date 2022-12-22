@@ -1,5 +1,5 @@
-import reducer, {fetchAgents, updateAgent, selectCurrentAgentId} from "./agentSlice";
-import agentSlice from "./agentSlice";
+import reducer, {fetchAgents, updateAgent, selectCurrentAgentId} from "./agentsSlice";
+import agentSlice from "./agentsSlice";
 import store from "../app/store";
 
 describe('agentSlice', () => {

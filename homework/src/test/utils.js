@@ -3,7 +3,7 @@ import {render} from '@testing-library/react'
 import {configureStore} from '@reduxjs/toolkit'
 import {Provider} from 'react-redux'
 
-import agentReducer from '../features/agentSlice'
+import agentsReducer from '../features/agentsSlice'
 import popupReducer from '../features/popupSlice'
 import navigationReducer from "../features/navigationSlice";
 
@@ -13,7 +13,7 @@ export function renderWithProviders(
         preloadedState = {},
         store = configureStore({
             reducer: {
-                agents: agentReducer,
+                agents: agentsReducer,
                 popup: popupReducer,
                 navigation: navigationReducer,
             }, preloadedState
