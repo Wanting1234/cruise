@@ -1,9 +1,7 @@
 import React from "react";
 import './History.css'
 
-const History = () => {
-    // todo: extract variables and save them in a file
-
+const HistoryList = () => {
     const history = [
         'bjstdmngbdr02/Acceptance_test',
         'bjstdmngbdr03/Acceptance_test',
@@ -29,4 +27,4 @@ const History = () => {
     );
 }
 
-export default History
+export default HistoryList

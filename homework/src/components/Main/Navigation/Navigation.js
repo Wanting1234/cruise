@@ -1,12 +1,11 @@
 import React, {useState} from "react";
-import History from "./History/History";
+import HistoryList from "./History/HistoryList";
 import './Navigation.css'
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {setNavigationState} from "../../../features/navigationSlice";
 
 const Navigation = () => {
-    // todo: extract variables and save them in a file
     const menu = [
         {id: '1', icon: 'icon-dashboard', name: 'DASHBOARD'},
         {id: '2', icon: 'icon-sitemap', name: 'AGENT'},
@@ -16,13 +15,9 @@ const Navigation = () => {
     const [active, setActive] = useState('AGENT')
     const dispatch = useDispatch()
 
-    function handleHideNav() {
-        dispatch(setNavigationState(false))
-    }
-
     return (
         <div className="navigation" role="navigation">
-            <span className="icon-close" onClick={handleHideNav}></span>
+            <span className="icon-close" onClick={() => {dispatch(setNavigationState(false))}}></span>
             <section className="navigation-message">
                 <ul>
                     {menu.map((item) =>
@@ -36,7 +31,7 @@ const Navigation = () => {
                         </li>)}
                 </ul>
             </section>
-            <History/>
+            <HistoryList/>
         </div>
     );
 }
