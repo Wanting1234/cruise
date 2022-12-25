@@ -29,9 +29,6 @@ export const AgentOperation = ({agent}) => {
         dispatch(setIsPopupShow(true))
     };
 
-    // todo: only transfer agentId and resources to AgentResource
-    // todo: rewrite AgentResource
-
     return(
         <div className="agent-operation">
             <div className="operation-group">
@@ -40,7 +37,9 @@ export const AgentOperation = ({agent}) => {
                     <span className={"iconfont icon-plus"} id={`plus-${agent.id}`}></span>
                 </button>
                 <section className="agent-resources">
-                    {agent.resources && <AgentResource agent={agent}/>}
+                    {agent.resources && agent.resources.map((resource, index) => (
+                        <AgentResource resource={resource} resourceIndex={index} agentId={agent.id} key={resource}/>
+                    ))}
                 </section>
             </div>
             <div className="agent-deny">
