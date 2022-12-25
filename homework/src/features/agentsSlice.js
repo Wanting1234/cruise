@@ -42,3 +42,5 @@ const agentsSlice = createSlice({
 export default agentsSlice.reducer
 export const {selectCurrentAgentId} = agentsSlice.actions
 export const selectAllAgents = (state) => state.agents.agents
+export const selectAgentById = (state, agentId) =>
+    state.agents.agents.find((agent) => agent.id === agentId)

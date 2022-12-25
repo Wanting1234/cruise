@@ -29,14 +29,12 @@ export const AgentList = () => {
     const visibleAgents = getVisibleAgents();
 
     return (
-        // todo: only transfer agentId to AgentItem component and add a method to get agent by its id
-
         <section className="agent-list" data-testid="agent-list">
         <Menu filter={filter} setFilter={setFilter}/>
         <div className="agent-list-section">
             <ul>
                 {visibleAgents.map((agent) => (<li key={agent.id}>
-                    <AgentItem agent={agent}/>
+                    <AgentItem agentId={agent.id}/>
                 </li>))}
             </ul>
         </div>

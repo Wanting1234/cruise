@@ -7,10 +7,13 @@ import suse from '../../../../../images/os icons/suse.png'
 import centos from '../../../../../images/os icons/cent_os.png'
 import {AgentInfo} from "./AgentDetail/AgentInfo";
 import {AgentOperation} from "./AgentDetail/AgentOperation";
+import {useSelector} from "react-redux";
+import {selectAgentById} from "../../../../../features/agentsSlice";
 
-export const AgentItem = ({agent}) => {
+export const AgentItem = ({agentId}) => {
     const menu = {windows, ubuntu, debian, suse, centos}
     // todo: only transfer agentId
+    const agent = useSelector((state) => selectAgentById(state, agentId))
 
     return (
         <div key={agent.id} className={`agent-item ${agent.status === "building" ? "yellow-item" : "green-item"}`}>
