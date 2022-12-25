@@ -1,19 +1,21 @@
 import React from "react";
 
-export const Statistics = ({physicalNum, virtualNum}) => (
-    // todo: duplicated code(use map)
-    <section className="card-overview">
-        <div className="overview-item">
-            <span>ALL</span>
-            <span data-testid="all">{physicalNum + virtualNum}</span>
-        </div>
-        <div className="overview-item">
-            <span>PHYSICAL</span>
-            <span data-testid="physical">{physicalNum}</span>
-        </div>
-        <div className="overview-item">
-            <span>VIRTUAL</span>
-            <span data-testid="virtual">{virtualNum}</span>
-        </div>
-    </section>
-);
+const Statistics = ({physicalNum, virtualNum}) => {
+    const menu = [
+        {name: 'all', number: physicalNum+virtualNum},
+        {name: 'physical', number: physicalNum},
+        {name: 'virtual', number: virtualNum},
+    ]
+    return (
+        <section className="card-overview">
+            {menu.map((item) =>
+                (<div className="overview-item" key={item.name}>
+                    <span>{item.name.toUpperCase()}</span>
+                    <span data-testid={item.name}>{item.number}</span>
+                </div>)
+            )}
+        </section>
+    );
+}
+
+export default Statistics

@@ -1,5 +1,5 @@
 import {Status} from "./Status";
-import {Statistics} from "./Statistics";
+import Statistics from "./Statistics";
 import React from "react";
 import {useSelector} from "react-redux";
 import {selectAllAgents} from "../../../../features/agentsSlice";
