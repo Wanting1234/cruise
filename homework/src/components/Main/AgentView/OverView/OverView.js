@@ -13,7 +13,7 @@ export const OverView = () => {
     const virtualNum = agents.filter((agent) => agent.type === 'virtual').length;
 
     return (
-        <div className="overview" role="overview">
+        <div className="overview" data-testid="overview">
             <Status status="building" num={buildingNum}/>
             <Status status="idle" num={idleNum}/>
             <Statistics physicalNum={physicalNum} virtualNum={virtualNum}/>

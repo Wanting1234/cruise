@@ -10,7 +10,7 @@ describe('AgentView', () => {
                 <AgentView />
             )
         await act(() => promise)
-        expect(screen.getByRole('overview')).toHaveClass('overview');
-        expect(screen.getByRole('region')).toHaveClass('agent-list');
+        expect(screen.getByTestId('overview')).toBeInTheDocument();
+        expect(screen.getByTestId('agent-list')).toBeInTheDocument();
     })
 })
