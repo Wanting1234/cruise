@@ -2,7 +2,7 @@ import React from "react";
 
 export function AgentInfo({name, status, ip, location}) {
 
-    const AgentInfoDetail = ({detail, iconType}) => <div className={`${detail}-with-icon`}>
+    const AgentInfoDetail = ({detail, iconType}) => <div className="agent-info-detail">
         <span className={`iconfont icon-${iconType}`}></span>
         <span className={`${detail === name ? 'name' : null}`}>{detail}</span>
     </div>;
