@@ -12,15 +12,12 @@ import {selectAgentById} from "../../../../../features/agentsSlice";
 
 export const AgentItem = ({agentId}) => {
     const menu = {windows, ubuntu, debian, suse, centos}
-    // todo: only transfer agentId
     const agent = useSelector((state) => selectAgentById(state, agentId))
 
     return (
         <div key={agent.id} className={`agent-item ${agent.status === "building" ? "yellow-item" : "green-item"}`}>
             <div className="agent-os">
-                <span>
                     <img src={menu[agent.os]} alt="agent-os" className="agent-os"/>
-                </span>
             </div>
             <div className="agent-detail">
                 <AgentInfo name={agent.name} status={agent.status} ip={agent.ip} location={agent.location}/>
