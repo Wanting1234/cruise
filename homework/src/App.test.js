@@ -11,7 +11,7 @@ describe('App', () => {
     expect(screen.queryByTestId('popup-box')).not.toBeInTheDocument();
 
     await waitFor(() => {
-      userEvent.click(screen.getByTestId('2'))
+      userEvent.click(screen.getByTestId('add-button-2'))
     })
 
     expect(await screen.findByTestId('popup-box')).toBeInTheDocument();
@@ -28,7 +28,7 @@ describe('App', () => {
     renderWithProviders(<App /> )
 
     await waitFor(() => {
-      userEvent.click(screen.getByTestId('3'))
+      userEvent.click(screen.getByTestId('add-button-3'))
     })
 
     userEvent.type(screen.getByPlaceholderText('e.g.Chrome,Firefox'), 'test02, test03')
@@ -47,10 +47,9 @@ describe('App', () => {
     renderWithProviders(<App />, {
       preloadedState: {
         popup: {
-          popupBoxState: true,
+          isPopupShow: true,
           position: {x: 0, y: 0}
         },
-        selectedAgent: 3,
       }
     })
 

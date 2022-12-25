@@ -4,12 +4,12 @@ const popupSlice = createSlice({
     name: 'popup',
     initialState: {
         // todo: mysterious name(popupBoxState and popupBoxPosition)
-        popupBoxState: false,
+        isPopupShow: false,
         position: {x:0, y:0}
     },
     reducers: {
-        setPopupBoxState: (state, action) => {
-            state.popupBoxState = action.payload
+        setIsPopupShow: (state, action) => {
+            state.isPopupShow = action.payload
             return state
         },
         setPosition: (state, action) => {
@@ -20,5 +20,5 @@ const popupSlice = createSlice({
     },
 })
 
-export const {setPopupBoxState, setPosition} = popupSlice.actions
+export const {setIsPopupShow, setPosition} = popupSlice.actions
 export default popupSlice.reducer

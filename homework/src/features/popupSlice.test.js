@@ -1,22 +1,22 @@
-import reducer, {setPopupBoxState, setPosition} from './popupSlice'
+import reducer, {setIsPopupShow, setPosition} from './popupSlice'
 
 describe('popupBoxState', () => {
     test('should return the initial state', () => {
-        expect(reducer(undefined, {payload: undefined}).popupBoxState).toEqual(false)
+        expect(reducer(undefined, {payload: undefined}).isPopupShow).toEqual(false)
     });
 
     test('should make popup box state becomes true', () => {
         const previousState = {
-            popupBoxState: false,
+            isPopupShow: false,
         }
-        expect(reducer(previousState, setPopupBoxState(true)).popupBoxState).toEqual(true)
+        expect(reducer(previousState, setIsPopupShow(true)).isPopupShow).toEqual(true)
     });
 
     test('should make popup box state becomes false', () => {
         const previousState = {
-            popupBoxState: true,
+            isPopupShow: true,
         }
-        expect(reducer(previousState, setPopupBoxState(false)).popupBoxState).toEqual(false)
+        expect(reducer(previousState, setIsPopupShow(false)).isPopupShow).toEqual(false)
     })
 })
 

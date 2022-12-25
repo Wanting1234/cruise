@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './Popup.css'
 import {useDispatch, useSelector} from "react-redux";
-import {setPopupBoxState} from "../../features/popupSlice";
+import {setIsPopupShow} from "../../features/popupSlice";
 import {selectAllAgents, updateAgent} from "../../features/agentsSlice";
 
 export const Popup = () => {
@@ -31,13 +31,13 @@ export const Popup = () => {
             }
            await dispatch(updateAgent(updatedAgent)).unwrap()
         }
-        dispatch(setPopupBoxState(false))
+        dispatch(setIsPopupShow(false))
     };
 
     const handleCancel = (e) => {
         e.preventDefault();
         setInputText('')
-        dispatch(setPopupBoxState(false))
+        dispatch(setIsPopupShow(false))
     };
 
     return (

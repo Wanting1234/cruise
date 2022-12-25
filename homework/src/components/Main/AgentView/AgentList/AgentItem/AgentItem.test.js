@@ -34,7 +34,7 @@ describe('AgentItem', () => {
         expect(screen.getByText('building')).toBeInTheDocument();
         expect(screen.getByText('192.168.1.80')).toBeInTheDocument();
         expect(screen.getByText('/var/lib/cruise-agent')).toBeInTheDocument();
-        expect(screen.getByTestId('1')).toHaveClass('add-button');
+        expect(screen.getByTestId('add-button-1')).toHaveClass('add-button');
         expect(screen.getByTestId('Firefox')).toHaveClass('resource-button');
         expect(screen.getByTestId('Chrome')).toHaveClass('resource-button');
         expect(screen.getByText('Deny')).toBeInTheDocument();

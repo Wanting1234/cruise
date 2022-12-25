@@ -6,7 +6,7 @@ import React from "react";
 import {useSelector} from "react-redux";
 
 function App() {
-    const popupState = useSelector((state) => state.popup.popupBoxState)
+    const popupState = useSelector((state) => state.popup.isPopupShow)
     return (
         <div className="App">
             <Header/>
