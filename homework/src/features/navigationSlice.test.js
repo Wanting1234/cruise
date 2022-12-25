@@ -1,21 +1,21 @@
-import reducer, {setNavigationState} from './navigationSlice'
+import reducer, {setIsNavigationShow} from './navigationSlice'
 
 describe('navigationSlice', () => {
     test('should return initial state', () => {
-        expect(reducer(undefined, {payload: undefined}).navigationState).toEqual(true)
+        expect(reducer(undefined, {payload: undefined}).isNavigationShow).toEqual(true)
     });
 
     test('should make navigation invisible', () => {
         const previousState = {
-            navigationState: true
+            isNavigationShow: true
         }
-        expect(reducer(previousState, setNavigationState(false)).navigationState).toEqual(false)
+        expect(reducer(previousState, setIsNavigationShow(false)).isNavigationShow).toEqual(false)
     });
 
     test('should make navigation visible', () => {
         const previousState = {
-            navigationState: false
+            isNavigationShow: false
         }
-        expect(reducer(previousState, setNavigationState(true)).navigationState).toEqual(true)
+        expect(reducer(previousState, setIsNavigationShow(true)).isNavigationShow).toEqual(true)
     });
 })

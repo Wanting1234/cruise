@@ -7,7 +7,7 @@ import {OtherView} from "./OtherView/OtherView";
 import {useSelector} from "react-redux";
 
 const Main = () => {
-    const navigationState = useSelector((state) => state.navigation.navigationState)
+    const navigationState = useSelector((state) => state.navigation.isNavigationShow)
     return(
         <BrowserRouter>
         <main className="main">

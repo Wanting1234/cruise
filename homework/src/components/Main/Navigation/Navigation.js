@@ -3,7 +3,7 @@ import HistoryList from "./History/HistoryList";
 import './Navigation.css'
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {setNavigationState} from "../../../features/navigationSlice";
+import {setIsNavigationShow} from "../../../features/navigationSlice";
 
 const Navigation = () => {
     const menu = [
@@ -17,7 +17,7 @@ const Navigation = () => {
 
     return (
         <div className="navigation" role="navigation">
-            <span className="icon-close" onClick={() => {dispatch(setNavigationState(false))}}></span>
+            <span className="icon-close" onClick={() => {dispatch(setIsNavigationShow(false))}}></span>
             <section className="navigation-message">
                 <ul>
                     {menu.map((item) =>

@@ -3,15 +3,15 @@ import {createSlice} from "@reduxjs/toolkit";
 const navigationSlice = createSlice({
     name: 'navigation',
     initialState: {
-       navigationState: true,
+       isNavigationShow: true,
     },
     reducers: {
-        setNavigationState: (state, action) => {
-            state.navigationState = action.payload
+        setIsNavigationShow: (state, action) => {
+            state.isNavigationShow = action.payload
             return state
         }
     },
 })
 
-export const {setNavigationState} = navigationSlice.actions
+export const {setIsNavigationShow} = navigationSlice.actions
 export default navigationSlice.reducer

@@ -3,7 +3,7 @@ import logo from '../../images/logo/logo.svg'
 import avatar from '../../images/logo/avatar.jpg'
 import './Header.css'
 import {useDispatch} from "react-redux";
-import {setNavigationState} from "../../features/navigationSlice";
+import {setIsNavigationShow} from "../../features/navigationSlice";
 
 const Header = () => {
     const menu = [
@@ -14,7 +14,7 @@ const Header = () => {
 
     return (
         <header className="header">
-            <span className="icon-navicon" onClick={() => {dispatch(setNavigationState(true))}}></span>
+            <span className="icon-navicon" onClick={() => {dispatch(setIsNavigationShow(true))}}></span>
             <img src={logo} alt="cruise" className="logo"/>
             <div className="dropdown">
                 <img src={avatar} alt="avatars" className="avatars"/>
