@@ -19,7 +19,7 @@
     color: #00B4CF;
 }
 
-.list {
+.agent-list-section {
     display: flex;
     flex-direction: column;
     margin: 0 10px;
@@ -28,7 +28,7 @@
     max-height: 700px;
 }
 
-.list li {
+.agent-list-section li {
     list-style: none;
 }
 
