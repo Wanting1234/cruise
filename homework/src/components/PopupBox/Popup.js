@@ -2,14 +2,13 @@ import React, {useState} from "react";
 import './Popup.css'
 import {useDispatch, useSelector} from "react-redux";
 import {setIsPopupShow} from "../../features/popupSlice";
-import {selectAllAgents, updateAgent} from "../../features/agentsSlice";
+import {selectAgentById, updateAgent} from "../../features/agentsSlice";
 
 export const Popup = () => {
-    // todo: add a method to get agent by its id and find agent by agentId
 
     const [inputText, setInputText] = useState('');
     const agentId = useSelector((state) => state.agents.selectedAgent)
-    const agents = useSelector(selectAllAgents)
+    const agent = useSelector((state) => selectAgentById(state, agentId))
     const position = useSelector((state) => state.popup.position)
     const left = position.x
     const top = position.y
@@ -22,7 +21,6 @@ export const Popup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const agent = agents.find((agent) => agent.id === agentId)
         const addResources = inputText.split(',').map(item => item.trim()).filter(item => item !== '');
         if (agent && addResources.length > 0) {
             const updatedAgent = {
