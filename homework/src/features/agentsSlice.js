@@ -34,7 +34,7 @@ const agentsSlice = createSlice({
             .addCase(updateAgent.fulfilled, (state, action) => {
                 const updatedAgent = action.payload;
                 const index = state.agents.findIndex(agent => agent.id === updatedAgent.id)
-                if (index!== -1) state.agents[index] = updatedAgent;
+                if (index !== -1) state.agents[index] = updatedAgent;
             })
     },
 })
@@ -44,3 +44,11 @@ export const {selectCurrentAgentId} = agentsSlice.actions
 export const selectAllAgents = (state) => state.agents.agents
 export const selectAgentById = (state, agentId) =>
     state.agents.agents.find((agent) => agent.id === agentId)
+
+export const countAgentsNumberWithProps = (state, selectedProps) => {
+    if (selectedProps === 'building' || selectedProps === 'idle') {
+        return state.agents.agents.filter((agent) => agent.status === selectedProps).length
+    } else {
+        return state.agents.agents.filter((agent) => agent.type === selectedProps).length
+    }
+}

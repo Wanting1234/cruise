@@ -1,6 +1,10 @@
 import React from "react";
+import {useSelector} from "react-redux";
+import {countAgentsNumberWithProps} from "../../../../features/agentsSlice";
 
-const Statistics = ({physicalNum, virtualNum}) => {
+const Statistics = () => {
+    const physicalNum = useSelector((state) => countAgentsNumberWithProps(state, 'physical'))
+    const virtualNum = useSelector((state) => countAgentsNumberWithProps(state, 'virtual'))
     const menu = [
         {name: 'all', number: physicalNum+virtualNum},
         {name: 'physical', number: physicalNum},
