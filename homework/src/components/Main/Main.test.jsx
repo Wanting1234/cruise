@@ -24,7 +24,7 @@ describe('Main', () => {
 
     expect(screen.getByRole('navigation')).toBeInTheDocument();
     expect(screen.queryByRole('content')).not.toBeInTheDocument();
-    expect(screen.getByRole('content-page')).toBeInTheDocument();
+    expect(screen.getByRole('banner')).toBeInTheDocument();
     expect(screen.getByText('dashboard Loading...')).toBeInTheDocument();
   });
 });

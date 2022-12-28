@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import Navigation from './Navigation/Navigation';
 import AgentView from './AgentView/AgentView';
 import './Main.css';
-import { OtherView } from './OtherView/OtherView';
+import OtherView from './OtherView/OtherView';
 
 function Main() {
   const navigationState = useSelector((state) => state.navigation.isNavigationShow);
