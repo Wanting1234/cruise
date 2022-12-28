@@ -12,7 +12,11 @@ module.exports = {
       files: [
         '**/*.test.js',
         '**/*.test.jsx',
+        'setupTests.js',
       ],
+      env: {
+        jest: true,
+      },
     },
   ],
   parserOptions: {
@@ -27,6 +31,7 @@ module.exports = {
     'react/destructuring-assignment': 1,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'no-param-reassign': ['error', { props: false }],
   },
   ignorePatterns: ['node_modules/*', 'dist/*', '*.json'],
 };
