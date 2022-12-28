@@ -3,36 +3,27 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'prettier',
-  ],
+  extends: ["plugin:react/recommended", "airbnb", "prettier"],
   overrides: [
     {
-      files: [
-        '**/*.test.js',
-        '**/*.test.jsx',
-        'setupTests.js',
-      ],
+      files: ["**/*.test.js", "**/*.test.jsx", "setupTests.js"],
       env: {
         jest: true,
       },
     },
   ],
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
-  plugins: [
-    'react', 'react-hooks',
-  ],
+  plugins: ["react", "react-hooks", "prettier"],
   rules: {
-    'react/prop-types': 0,
-    'react/destructuring-assignment': 1,
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
-    'no-param-reassign': ['error', { props: false }],
+    "react/prop-types": 0,
+    "react/destructuring-assignment": 1,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-param-reassign": ["error", { props: false }],
+    "prettier/prettier": "error",
   },
-  ignorePatterns: ['node_modules/*', 'dist/*', '*.json'],
+  ignorePatterns: ["node_modules/*", "dist/*", "*.json"],
 };
