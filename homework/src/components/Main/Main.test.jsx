@@ -14,7 +14,7 @@ describe('Main', () => {
     await act(() => promise);
     expect(await screen.findByRole('main')).toBeInTheDocument();
     expect(await screen.findByRole('navigation')).toBeInTheDocument();
-    expect(await screen.findByRole('content')).toBeInTheDocument();
+    expect(await screen.findByRole('region')).toBeInTheDocument();
   });
 
   test('should render navigation and other content page when click DASHBOARD', () => {
@@ -23,7 +23,7 @@ describe('Main', () => {
     userEvent.click(screen.queryByText('DASHBOARD'));
 
     expect(screen.getByRole('navigation')).toBeInTheDocument();
-    expect(screen.queryByRole('content')).not.toBeInTheDocument();
+    expect(screen.queryByRole('region')).not.toBeInTheDocument();
     expect(screen.getByRole('banner')).toBeInTheDocument();
     expect(screen.getByText('dashboard Loading...')).toBeInTheDocument();
   });
