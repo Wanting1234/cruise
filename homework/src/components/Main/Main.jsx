@@ -1,13 +1,15 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import './Main.css';
-import AgentView from './AgentView/AgentView';
-import OtherView from './OtherView/OtherView';
-import Navigation from './Navigation/Navigation';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
+import "./Main.css";
+import AgentView from "./AgentView/AgentView";
+import OtherView from "./OtherView/OtherView";
+import Navigation from "./Navigation/Navigation";
 
 function Main() {
-  const navigationState = useSelector((state) => state.navigation.isNavigationShow);
+  const navigationState = useSelector(
+    (state) => state.navigation.isNavigationShow
+  );
   return (
     <BrowserRouter>
       <main className="main">

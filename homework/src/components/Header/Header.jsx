@@ -1,20 +1,26 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import logo from '../../images/logo/logo.svg';
-import avatar from '../../images/logo/avatar.jpg';
-import './Header.css';
-import { setIsNavigationShow } from '../../features/navigationSlice';
+import React from "react";
+import { useDispatch } from "react-redux";
+import logo from "../../images/logo/logo.svg";
+import avatar from "../../images/logo/avatar.jpg";
+import "./Header.css";
+import { setIsNavigationShow } from "../../features/navigationSlice";
 
 function Header() {
   const menu = [
-    { icon: 'icon-id-card', label: 'Profile' },
-    { icon: 'icon-sign-in', label: 'Sign Out' },
+    { icon: "icon-id-card", label: "Profile" },
+    { icon: "icon-sign-in", label: "Sign Out" },
   ];
   const dispatch = useDispatch();
 
   return (
     <header className="header">
-      <span className="icon-navicon" onClick={() => { dispatch(setIsNavigationShow(true)); }} />
+      <span
+        className="icon-navicon"
+        role="presentation"
+        onClick={() => {
+          dispatch(setIsNavigationShow(true));
+        }}
+      />
       <img src={logo} alt="cruise" className="logo" />
       <div className="dropdown">
         <img src={avatar} alt="avatars" className="avatars" />

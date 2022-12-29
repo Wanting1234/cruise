@@ -1,7 +1,7 @@
-import React from 'react';
-import './AgentView.css';
-import AgentList from './AgentList/AgentList';
-import OverView from './OverView/OverView';
+import React from "react";
+import "./AgentView.css";
+import AgentList from "./AgentList/AgentList";
+import OverView from "./OverView/OverView";
 
 function AgentView() {
   return (

@@ -1,5 +1,5 @@
-import React from 'react';
-import './InputSearch.css';
+import React from "react";
+import "./InputSearch.css";
 
 export default function InputSearch() {
   return (

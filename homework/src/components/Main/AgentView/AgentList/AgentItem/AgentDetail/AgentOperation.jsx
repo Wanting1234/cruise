@@ -1,8 +1,11 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { selectCurrentAgentId } from '../../../../../../features/agentsSlice';
-import { setIsPopupShow, setPosition } from '../../../../../../features/popupSlice';
-import AgentResource from './AgentResource';
+import React from "react";
+import { useDispatch } from "react-redux";
+import { selectCurrentAgentId } from "../../../../../../features/agentsSlice";
+import {
+  setIsPopupShow,
+  setPosition,
+} from "../../../../../../features/popupSlice";
+import AgentResource from "./AgentResource";
 
 export default function AgentOperation({ agent }) {
   const dispatch = useDispatch();
@@ -40,20 +43,25 @@ export default function AgentOperation({ agent }) {
           <span className="iconfont icon-plus" id={`plus-${agent.id}`} />
         </button>
         <section className="agent-resources">
-          {agent.resources && agent.resources.map((resource, index) => (
-            // eslint-disable-next-line max-len
-            <AgentResource resource={resource} resourceIndex={index} agentId={agent.id} key={resource} />
-          ))}
+          {agent.resources &&
+            agent.resources.map((resource, index) => (
+              // eslint-disable-next-line max-len
+              <AgentResource
+                resource={resource}
+                resourceIndex={index}
+                agentId={agent.id}
+                key={resource}
+              />
+            ))}
         </section>
       </div>
       <div className="agent-deny">
-        {agent.status === 'building'
-          ? (
-            <button className="deny-button" type="button">
-              <span className="iconfont icon-deny" />
-              <span>Deny</span>
-            </button>
-          ) : null}
+        {agent.status === "building" ? (
+          <button className="deny-button" type="button">
+            <span className="iconfont icon-deny" />
+            <span>Deny</span>
+          </button>
+        ) : null}
       </div>
     </div>
   );

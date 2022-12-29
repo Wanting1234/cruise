@@ -1,21 +1,23 @@
-import React from 'react';
-import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import Popup from './Popup';
-import store from '../../app/store';
+import React from "react";
+import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
+import Popup from "./Popup";
+import store from "../../app/store";
 
-describe('Popup', () => {
-  test('should render popup box content', () => {
+describe("Popup", () => {
+  test("should render popup box content", () => {
     render(
       <Provider store={store}>
         <Popup />
-      </Provider>,
+      </Provider>
     );
 
-    expect(screen.getByText('Separate multiple resource name with commas')).toBeInTheDocument();
-    expect(screen.getByRole('textbox')).toBeInTheDocument();
-    expect(screen.getByText('Add Resources')).toBeInTheDocument();
-    expect(screen.getByText('Cancel')).toBeInTheDocument();
+    expect(
+      screen.getByText("Separate multiple resource name with commas")
+    ).toBeInTheDocument();
+    expect(screen.getByRole("textbox")).toBeInTheDocument();
+    expect(screen.getByText("Add Resources")).toBeInTheDocument();
+    expect(screen.getByText("Cancel")).toBeInTheDocument();
   });
 });
